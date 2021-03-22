@@ -80,9 +80,9 @@ public class GameScene implements Scene {
 
     @Override
     public void resizeScene(int width, int height) {
-        camera.viewportWidth = width;
-        camera.viewportHeight = height;
-        camera.update();
+//        camera.viewportWidth = width;
+//        camera.viewportHeight = height;
+//        camera.update();
     }
 
     @Override
@@ -93,6 +93,7 @@ public class GameScene implements Scene {
 
         engine.update(Gdx.graphics.getDeltaTime());
 
+//        System.out.println(camera.viewportWidth);
 //        System.out.println("Camera position: " + camera.position);
 //        for (Entity player : engine.getEntitiesFor(Family.all(PlayerComponent.class).get())) {
 //            PositionComponent position = player.getComponent(PositionComponent.class);
@@ -139,7 +140,8 @@ public class GameScene implements Scene {
 
     private static Camera createCamera() {
         OrthographicCamera camera = new OrthographicCamera();
-        camera.setToOrtho(false);
+        camera.setToOrtho(false, 320, 240);
+        //camera.zoom = 0.5f;
         camera.position.set(0, 0, 0);
         camera.update();
 

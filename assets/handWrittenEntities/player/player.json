@@ -5,6 +5,6 @@
   ],
   "com.gempukku.jam.libgdx.march2021.component.CameraFocusComponent": {
     "weight": 1,
-    "advance": 100
+    "advance": 50
   }
 }

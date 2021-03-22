@@ -4,7 +4,7 @@
       "tpl:extends": [],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": 0,
-        "y": -224
+        "y": -112
       },
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
         "bodyType": "StaticBody",
@@ -32,8 +32,8 @@
             ],
             "shape": {
               "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
-              "width": 1920,
-              "height": 16,
+              "width": 960,
+              "height": 12,
               "center": {
                 "x": 0,
                 "y": 0
@@ -44,8 +44,8 @@
         ]
       },
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
-        "layer": 10,
-        "width": 1920,
+        "layer": 8,
+        "width": 960,
         "height": 32,
         "tags": [
           "Tiled"
@@ -58,7 +58,7 @@
           },
           "Tile Repeat": {
             "class": "com.badlogic.gdx.math.Vector2",
-            "x": 40,
+            "x": 20,
             "y": 1
           }
         }
@@ -68,10 +68,10 @@
       "tpl:extends": [],
       "com.gempukku.jam.libgdx.march2021.component.LevelComponent": {
         "bounds": {
-          "x": -960.0,
-          "y": -240.0,
-          "width": 1920.0,
-          "height": 480.0
+          "x": -480.0,
+          "y": -120.0,
+          "width": 960.0,
+          "height": 240.0
         },
         "snapWindow": {
           "x": 0.30000001192092896,
@@ -95,8 +95,8 @@
       "tpl:extends": [],
       "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent": {},
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -912,
-        "y": -192
+        "x": -448,
+        "y": -96
       }
     }
   ]
