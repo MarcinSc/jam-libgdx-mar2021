@@ -1,0 +1,212 @@
+{
+  "tpl:extends": [],
+  "com.gempukku.jam.libgdx.march2021.component.AgilityComponent": {
+    "walkSpeed": 2.0,
+    "jumpSpeed": 6.0,
+    "climbSpeed": 1.5
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+    "x": 0,
+    "y": 0
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteStateComponent": {
+    "state": "Idle",
+    "states": {
+      "Jump": {
+        "width": 64,
+        "height": 64,
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/player/Player-Jump.png"
+          },
+          "Animation Start": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+          },
+          "Sprite Count": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 4,
+            "y": 1
+          },
+          "Animation Looping": {
+            "class": "java.lang.Float",
+            "value": 0
+          },
+          "Animation Speed": {
+            "class": "java.lang.Float",
+            "value": 10
+          }
+        }
+      },
+      "Airborne": {
+        "width": 64,
+        "height": 64,
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/player/Player-Airborne.png"
+          },
+          "Animation Start": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+          },
+          "Sprite Count": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 4,
+            "y": 1
+          },
+          "Animation Looping": {
+            "class": "java.lang.Float",
+            "value": 0
+          },
+          "Animation Speed": {
+            "class": "java.lang.Float",
+            "value": 10
+          }
+        }
+      },
+      "Walk": {
+        "width": 64,
+        "height": 64,
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/player/Player-Walk.png"
+          },
+          "Animation Start": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+          },
+          "Sprite Count": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 2,
+            "y": 1
+          },
+          "Animation Looping": {
+            "class": "java.lang.Float",
+            "value": 1
+          },
+          "Animation Speed": {
+            "class": "java.lang.Float",
+            "value": 10
+          }
+        }
+      },
+      "Idle": {
+        "width": 64,
+        "height": 64,
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/player/Player-Idle.png"
+          },
+          "Animation Start": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+          },
+          "Sprite Count": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 4,
+            "y": 1
+          },
+          "Animation Speed": {
+            "class": "java.lang.Float",
+            "value": 5
+          },
+          "Animation Looping": {
+            "class": "java.lang.Float",
+            "value": 1
+          }
+        }
+      }
+    }
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+    "bodyType": "DynamicBody",
+    "fixedRotation": true,
+    "bullet": false,
+    "linearDamping": 0,
+    "angularDamping": 0,
+    "allowSleep": true,
+    "gravityScale": 1,
+    "fixtures": [
+      {
+        "friction": 0.2,
+        "restitution": 0,
+        "density": 0,
+        "sensor": false,
+        "sensorName": "",
+        "type": "Character",
+        "mask": [
+          "Environment"
+        ],
+        "shape": {
+          "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+          "width": 16,
+          "height": 48,
+          "center": {
+            "x": 0,
+            "y": 0
+          },
+          "angle": 0
+        }
+      },
+      {
+        "friction": 0.2,
+        "restitution": 0,
+        "density": 0,
+        "sensor": true,
+        "sensorName": "foot",
+        "type": "groundContact",
+        "mask": [
+          "Ground"
+        ],
+        "shape": {
+          "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+          "width": 16,
+          "height": 4,
+          "center": {
+            "x": 0,
+            "y": 0
+          },
+          "angle": 0
+        }
+      }
+    ]
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+    "layer": 10,
+    "width": 64,
+    "height": 64,
+    "tags": [
+      "Animated"
+    ],
+    "properties": {
+      "Texture": {
+        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+        "atlas": "",
+        "texture": "images/player/Player-Idle.png"
+      },
+      "Animation Start": {
+        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+      },
+      "Sprite Count": {
+        "class": "com.badlogic.gdx.math.Vector2",
+        "x": 4,
+        "y": 1
+      },
+      "Animation Speed": {
+        "class": "java.lang.Float",
+        "value": 5
+      },
+      "Animation Looping": {
+        "class": "java.lang.Float",
+        "value": 1
+      }
+    }
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
+    "faceDirection": "Right"
+  }
+}

@@ -6,6 +6,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.assets.loaders.resolvers.ClasspathFileHandleResolver;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -13,10 +14,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.Json;
 import com.gempukku.jam.libgdx.march2021.system.CameraSystem;
 import com.gempukku.jam.libgdx.march2021.system.DirectTextureLoader;
 import com.gempukku.jam.libgdx.march2021.system.FiniteStateSystem;
 import com.gempukku.jam.libgdx.march2021.system.InputControlSystem;
+import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.Box2DSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.TextureLoader;
@@ -24,9 +27,9 @@ import com.gempukku.libgdx.graph.loader.GraphLoader;
 import com.gempukku.libgdx.graph.pipeline.PipelineLoaderCallback;
 import com.gempukku.libgdx.graph.pipeline.PipelineRenderer;
 import com.gempukku.libgdx.graph.pipeline.RenderOutputs;
-import com.gempukku.libgdx.graph.time.DefaultTimeKeeper;
-import com.gempukku.libgdx.graph.time.TimeKeeper;
 import com.gempukku.libgdx.graph.time.TimeProvider;
+import com.gempukku.libgdx.lib.template.ashley.AshleyEngineJson;
+import com.gempukku.libgdx.lib.template.ashley.AshleyTemplateEntityLoader;
 import com.gempukku.libgdx.lib.template.ashley.EntityDef;
 
 import java.io.IOException;
@@ -35,7 +38,6 @@ import java.io.InputStream;
 public class GameScene implements Scene {
     private Array<Disposable> resources = new Array<>();
     private PipelineRenderer pipelineRenderer;
-    private DefaultTimeKeeper timeKeeper = new DefaultTimeKeeper();
     private DirectTextureLoader directTextureLoader;
 
     private Engine engine;
@@ -60,10 +62,7 @@ public class GameScene implements Scene {
 
         camera = createCamera();
 
-        pipelineRenderer = loadPipeline(timeKeeper, camera);
-        resources.add(pipelineRenderer);
-
-        engine = setupEntitySystem(timeKeeper, pipelineRenderer, directTextureLoader, camera);
+        engine = setupEntitySystem(directTextureLoader, camera);
 
         createEntities();
     }
@@ -86,9 +85,7 @@ public class GameScene implements Scene {
             performanceProfiler.toggle();
         }
 
-        float delta = Math.min(1f / 30f, Gdx.graphics.getDeltaTime());
-        timeKeeper.updateTime(delta);
-        engine.update(delta);
+        engine.update(Gdx.graphics.getDeltaTime());
 
         performanceProfiler.beforeDraw();
         pipelineRenderer.render(RenderOutputs.drawToScreen);
@@ -110,10 +107,10 @@ public class GameScene implements Scene {
     }
 
     private void createEntities() {
-//        Json json = new AshleyEngineJson(engine);
-//        ClasspathFileHandleResolver fileHandleResolver = new ClasspathFileHandleResolver();
-//        createEntity(AshleyTemplateEntityLoader.loadTemplate("entity/player/player.json", json, fileHandleResolver));
-//
+        Json json = new AshleyEngineJson(engine);
+        ClasspathFileHandleResolver fileHandleResolver = new ClasspathFileHandleResolver();
+        createEntity(AshleyTemplateEntityLoader.loadTemplate("handWrittenEntities/player/player.json", json, fileHandleResolver));
+
 //        JsonValue level = JsonTemplateLoader.loadTemplateFromFile("entity/level/level1.json", fileHandleResolver);
 //        for (JsonValue entity : level.get("entities")) {
 //            createEntity(AshleyTemplateEntityLoader.convertToAshley(entity, json));
@@ -137,20 +134,25 @@ public class GameScene implements Scene {
         return camera;
     }
 
-    private static Engine setupEntitySystem(TimeProvider timeProvider, PipelineRenderer pipelineRenderer,
-                                            TextureLoader textureLoader, Camera camera) {
+    private Engine setupEntitySystem(TextureLoader textureLoader, Camera camera) {
         Engine engine = new Engine();
 
-        InputControlSystem inputControlSystem = new InputControlSystem(0, timeProvider);
+        TimeSystem timeSystem = new TimeSystem(0);
+        engine.addSystem(timeSystem);
+
+        pipelineRenderer = loadPipeline(timeSystem.getTimeProvider(), camera);
+        resources.add(pipelineRenderer);
+
+        InputControlSystem inputControlSystem = new InputControlSystem(1);
         engine.addSystem(inputControlSystem);
 
-        FiniteStateSystem finiteStateSystem = new FiniteStateSystem(5, timeProvider);
+        FiniteStateSystem finiteStateSystem = new FiniteStateSystem(5);
         engine.addSystem(finiteStateSystem);
 
         Box2DSystem box2DSystem = new Box2DSystem(10, new Vector2(0, -15f), false, 100);
         engine.addSystem(box2DSystem);
 
-        RenderingSystem renderingSystem = new RenderingSystem(20, timeProvider, pipelineRenderer, textureLoader);
+        RenderingSystem renderingSystem = new RenderingSystem(20, timeSystem.getTimeProvider(), pipelineRenderer, textureLoader);
         engine.addSystem(renderingSystem);
 
         CameraSystem cameraSystem = new CameraSystem(30, camera);
@@ -159,12 +161,12 @@ public class GameScene implements Scene {
         return engine;
     }
 
-    private static PipelineRenderer loadPipeline(TimeKeeper timeKeeper, Camera camera) {
+    private static PipelineRenderer loadPipeline(TimeProvider timeProvider, Camera camera) {
         FileHandle pipelineFile = Gdx.files.classpath("pipeline.json");
         try {
             InputStream is = pipelineFile.read();
             try {
-                PipelineRenderer pipelineRenderer = GraphLoader.loadGraph(is, new PipelineLoaderCallback(timeKeeper));
+                PipelineRenderer pipelineRenderer = GraphLoader.loadGraph(is, new PipelineLoaderCallback(timeProvider));
                 pipelineRenderer.setPipelineProperty("Camera", camera);
                 return pipelineRenderer;
             } finally {

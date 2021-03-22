@@ -6,52 +6,66 @@
     "templatesSubfolder": "templates",
     "entitiesSubfolder": "entities"
   },
-  "entityGroups": [
+  "entityGroups": [],
+  "customDataDefinitions": [
     {
-      "name": "level1",
-      "entities": [
+      "id": "98d87d73647a439aad87b22c70a302e0",
+      "name": "AgilityComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.AgilityComponent",
+      "component": true,
+      "fields": [
         {
-          "path": null,
-          "data": {
-            "id": "f192b04d4d864d46a260f457ab16f775",
-            "name": "entity1",
-            "templates": [
-              "8e26872416ce4651ae5b324b1ab97e88"
-            ],
-            "components": []
-          }
+          "name": "walkSpeed",
+          "type": "Object",
+          "fieldTypeId": "float"
         },
         {
-          "path": null,
-          "data": {
-            "id": "1b63eb46fa404f4f9579b41c31933a70",
-            "name": "entity2",
-            "templates": [
-              "8e26872416ce4651ae5b324b1ab97e88"
-            ],
-            "components": [
-              {
-                "id": "PositionComponent",
-                "data": {
-                  "x": 0,
-                  "y": 77
-                }
-              }
-            ]
-          }
+          "name": "jumpSpeed",
+          "type": "Object",
+          "fieldTypeId": "float"
+        },
+        {
+          "name": "climbSpeed",
+          "type": "Object",
+          "fieldTypeId": "float"
+        }
+      ]
+    },
+    {
+      "id": "e0e74dec8a9e45fe8fe8a44ebaa14101",
+      "name": "InputControlledComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.InputControlledComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "triggerKeyMapping",
+          "type": "Map",
+          "fieldTypeId": "String"
+        },
+        {
+          "name": "stateKeys",
+          "type": "Map",
+          "fieldTypeId": "String"
         }
       ]
     }
   ],
-  "customDataDefinitions": [],
   "templates": [
     {
       "path": null,
       "data": {
-        "id": "8e26872416ce4651ae5b324b1ab97e88",
-        "name": "MossyHill",
+        "id": "b0b3d50ffb6b47a7bf5071b7cd39922b",
+        "name": "player",
         "templates": [],
         "components": [
+          {
+            "id": "98d87d73647a439aad87b22c70a302e0",
+            "data": {
+              "walkSpeed": 2.0,
+              "jumpSpeed": 6.0,
+              "climbSpeed": 1.5
+            }
+          },
           {
             "id": "PositionComponent",
             "data": {
@@ -60,10 +74,182 @@
             }
           },
           {
+            "id": "SpriteStateComponent",
+            "data": {
+              "state": "Idle",
+              "states": {
+                "Jump": {
+                  "width": 64,
+                  "height": 64,
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/player/Player-Jump.png"
+                    },
+                    "Animation Start": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+                    },
+                    "Sprite Count": {
+                      "class": "com.badlogic.gdx.math.Vector2",
+                      "x": 4,
+                      "y": 1
+                    },
+                    "Animation Looping": {
+                      "class": "java.lang.Float",
+                      "value": 0
+                    },
+                    "Animation Speed": {
+                      "class": "java.lang.Float",
+                      "value": 10
+                    }
+                  }
+                },
+                "Airborne": {
+                  "width": 64,
+                  "height": 64,
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/player/Player-Airborne.png"
+                    },
+                    "Animation Start": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+                    },
+                    "Sprite Count": {
+                      "class": "com.badlogic.gdx.math.Vector2",
+                      "x": 4,
+                      "y": 1
+                    },
+                    "Animation Looping": {
+                      "class": "java.lang.Float",
+                      "value": 0
+                    },
+                    "Animation Speed": {
+                      "class": "java.lang.Float",
+                      "value": 10
+                    }
+                  }
+                },
+                "Walk": {
+                  "width": 64,
+                  "height": 64,
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/player/Player-Walk.png"
+                    },
+                    "Animation Start": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+                    },
+                    "Sprite Count": {
+                      "class": "com.badlogic.gdx.math.Vector2",
+                      "x": 2,
+                      "y": 1
+                    },
+                    "Animation Looping": {
+                      "class": "java.lang.Float",
+                      "value": 1
+                    },
+                    "Animation Speed": {
+                      "class": "java.lang.Float",
+                      "value": 10
+                    }
+                  }
+                },
+                "Idle": {
+                  "width": 64,
+                  "height": 64,
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/player/Player-Idle.png"
+                    },
+                    "Animation Start": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+                    },
+                    "Sprite Count": {
+                      "class": "com.badlogic.gdx.math.Vector2",
+                      "x": 4,
+                      "y": 1
+                    },
+                    "Animation Speed": {
+                      "class": "java.lang.Float",
+                      "value": 5
+                    },
+                    "Animation Looping": {
+                      "class": "java.lang.Float",
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "DynamicBody",
+              "fixedRotation": true,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "type": "Character",
+                  "mask": [
+                    "Environment"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 16,
+                    "height": 48,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                },
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": true,
+                  "sensorName": "foot",
+                  "type": "groundContact",
+                  "mask": [
+                    "Ground"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 16,
+                    "height": 4,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
             "id": "SpriteComponent",
             "data": {
-              "layer": 5,
-              "width": 180,
+              "layer": 10,
+              "width": 64,
               "height": 64,
               "tags": [
                 "Animated"
@@ -72,7 +258,23 @@
                 "Texture": {
                   "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
                   "atlas": "",
-                  "texture": "images/MossyHill.png"
+                  "texture": "images/player/Player-Idle.png"
+                },
+                "Animation Start": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+                },
+                "Sprite Count": {
+                  "class": "com.badlogic.gdx.math.Vector2",
+                  "x": 4,
+                  "y": 1
+                },
+                "Animation Speed": {
+                  "class": "java.lang.Float",
+                  "value": 5
+                },
+                "Animation Looping": {
+                  "class": "java.lang.Float",
+                  "value": 1
                 }
               }
             }
@@ -80,7 +282,18 @@
           {
             "id": "FacingComponent",
             "data": {
-              "faceDirection": "Left"
+              "faceDirection": "Right"
+            }
+          },
+          {
+            "id": "e0e74dec8a9e45fe8fe8a44ebaa14101",
+            "data": {
+              "triggerKeyMapping": {
+                "Space": "Space"
+              },
+              "stateKeys": {
+                "Left": "Left"
+              }
             }
           }
         ]

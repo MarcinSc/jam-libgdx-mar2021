@@ -1,0 +1,51 @@
+{
+  "com.gempukku.jam.libgdx.march2021.component.FiniteStateComponent": {
+    "initialState": "Start",
+    "machineStates": {
+      "Start": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.NoOpState"
+      },
+      "Walk/Idle": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.player.WalkIdleState"
+      },
+      "Jump": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.player.JumpState"
+      },
+      "Airborne": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.player.AirborneState"
+      }
+    },
+    "transitions": {
+      "Start": {
+        "Walk/Idle": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.TrueCondition"
+        }
+      },
+      "Walk/Idle": {
+        "Jump": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.WhenKeyPressedWithinCondition",
+          "time": 0.1,
+          "keyMapping": [
+            "Jump"
+          ]
+        },
+        "Airborne": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasNoContactCondition",
+          "sensor": "foot"
+        }
+      },
+      "Jump": {
+        "Airborne": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.TimeCondition",
+          "time": 0.4
+        }
+      },
+      "Airborne": {
+        "Walk/Idle": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasContactCondition",
+          "sensor": "foot"
+        }
+      }
+    }
+  }
+}

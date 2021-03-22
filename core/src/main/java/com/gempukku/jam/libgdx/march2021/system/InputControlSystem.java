@@ -10,26 +10,25 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.Queue;
 import com.gempukku.jam.libgdx.march2021.component.InputControlledComponent;
-import com.gempukku.libgdx.graph.time.TimeProvider;
 
 public class InputControlSystem extends EntitySystem {
-    private TimeProvider timeProvider;
     private ImmutableArray<Entity> inputControlledEntities;
+    private Engine engine;
 
-    public InputControlSystem(int priority, TimeProvider timeProvider) {
+    public InputControlSystem(int priority) {
         super(priority);
-        this.timeProvider = timeProvider;
     }
 
     @Override
     public void addedToEngine(Engine engine) {
+        this.engine = engine;
         Family family = Family.all(InputControlledComponent.class).get();
         inputControlledEntities = engine.getEntitiesFor(family);
     }
 
     @Override
     public void update(float deltaTime) {
-        float time = timeProvider.getTime();
+        float time = engine.getSystem(TimeSystem.class).getTimeProvider().getTime();
         for (Entity playerControllerEntity : inputControlledEntities) {
             InputControlledComponent playerController = playerControllerEntity.getComponent(InputControlledComponent.class);
             Queue<InputControlledComponent.InputEntry> inputs = playerController.getInputs();

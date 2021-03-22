@@ -1,0 +1,10 @@
+{
+  "tpl:extends": [
+    "handWrittenEntities/player/playerTemplate.json",
+    "handWrittenEntities/player/playerStateMachine.json"
+  ],
+  "com.gempukku.jam.libgdx.march2021.component.CameraFocusComponent": {
+    "weight": 1,
+    "advance": 100
+  }
+}

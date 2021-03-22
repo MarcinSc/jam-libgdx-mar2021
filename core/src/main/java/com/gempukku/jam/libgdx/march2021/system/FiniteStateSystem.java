@@ -8,7 +8,9 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.gempukku.jam.libgdx.march2021.component.FiniteStateComponent;
-import com.gempukku.libgdx.graph.time.TimeProvider;
+import com.gempukku.jam.libgdx.march2021.system.machine.ContainerTriggerCondition;
+import com.gempukku.jam.libgdx.march2021.system.machine.EngineTriggerCondition;
+import com.gempukku.jam.libgdx.march2021.system.machine.EngineTriggerState;
 import com.gempukku.libgdx.lib.fst.FiniteStateMachine;
 import com.gempukku.libgdx.lib.fst.MachineState;
 import com.gempukku.libgdx.lib.fst.TriggerCondition;
@@ -17,15 +19,15 @@ import com.gempukku.libgdx.lib.fst.TriggerState;
 
 public class FiniteStateSystem extends EntitySystem {
     private ImmutableArray<Entity> finiteStateEntities;
-    private TimeProvider timeProvider;
+    private Engine engine;
 
-    public FiniteStateSystem(int priority, TimeProvider timeProvider) {
+    public FiniteStateSystem(int priority) {
         super(priority);
-        this.timeProvider = timeProvider;
     }
 
     @Override
     public void addedToEngine(Engine engine) {
+        this.engine = engine;
         Family family = Family.all(FiniteStateComponent.class).get();
         engine.addEntityListener(family,
                 new EntityListener() {
@@ -66,18 +68,18 @@ public class FiniteStateSystem extends EntitySystem {
     }
 
     private void initializeTransition(Entity entity, TriggerCondition triggerCondition) {
-//        if (triggerCondition instanceof PastelTriggerCondition)
-//            ((PastelTriggerCondition) triggerCondition).init(entity, timeProvider);
-//        if (triggerCondition instanceof ContainerTriggerCondition) {
-//            for (TriggerCondition child : ((ContainerTriggerCondition) triggerCondition).getChildren()) {
-//                initializeTransition(entity, child);
-//            }
-//        }
+        if (triggerCondition instanceof EngineTriggerCondition)
+            ((EngineTriggerCondition) triggerCondition).init(entity, engine);
+        if (triggerCondition instanceof ContainerTriggerCondition) {
+            for (TriggerCondition child : ((ContainerTriggerCondition) triggerCondition).getChildren()) {
+                initializeTransition(entity, child);
+            }
+        }
     }
 
     private void initializeState(Entity entity, TriggerState machineState) {
-//        if (machineState instanceof PastelTriggerState)
-//            ((PastelTriggerState) machineState).init(entity, timeProvider);
+        if (machineState instanceof EngineTriggerState)
+            ((EngineTriggerState) machineState).init(entity, engine);
     }
 
     @Override
