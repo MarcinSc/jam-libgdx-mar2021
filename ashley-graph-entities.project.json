@@ -6,7 +6,50 @@
     "templatesSubfolder": "templates",
     "entitiesSubfolder": "entities"
   },
-  "entityGroups": [],
+  "entityGroups": [
+    {
+      "name": "level-1",
+      "entities": [
+        {
+          "path": null,
+          "data": {
+            "id": "03a85db74dbf434c9d020d10f253eae4",
+            "name": "Level",
+            "templates": [],
+            "components": [
+              {
+                "id": "5d8dc22ac18a45bab95b9aa008fa1f7c",
+                "data": {
+                  "bounds": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "width": 1920.0,
+                    "height": 480.0
+                  },
+                  "snapWindow": {
+                    "x": 0.30000001192092896,
+                    "y": 0.30000001192092896,
+                    "width": 0.4000000059604645,
+                    "height": 0.20000000298023224
+                  },
+                  "snapSpeed": {
+                    "x": 0.20000000298023224,
+                    "y": 0.20000000298023224
+                  },
+                  "lockWindow": {
+                    "x": 0.20000000298023224,
+                    "y": 0.10000000149011612,
+                    "width": 0.6000000238418579,
+                    "height": 0.6000000238418579
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
   "customDataDefinitions": [
     {
       "id": "98d87d73647a439aad87b22c70a302e0",
@@ -46,6 +89,34 @@
           "name": "stateKeys",
           "type": "Map",
           "fieldTypeId": "String"
+        }
+      ]
+    },
+    {
+      "id": "5d8dc22ac18a45bab95b9aa008fa1f7c",
+      "name": "LevelComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.LevelComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "bounds",
+          "type": "Object",
+          "fieldTypeId": "Rectangle"
+        },
+        {
+          "name": "snapWindow",
+          "type": "Object",
+          "fieldTypeId": "Rectangle"
+        },
+        {
+          "name": "snapSpeed",
+          "type": "Object",
+          "fieldTypeId": "Vector2"
+        },
+        {
+          "name": "lockWindow",
+          "type": "Object",
+          "fieldTypeId": "Rectangle"
         }
       ]
     }
@@ -206,7 +277,10 @@
                   "density": 0,
                   "sensor": false,
                   "sensorName": "",
-                  "type": "Character",
+                  "sensorType": "",
+                  "category": [
+                    "Character"
+                  ],
                   "mask": [
                     "Environment"
                   ],
@@ -227,7 +301,10 @@
                   "density": 0,
                   "sensor": true,
                   "sensorName": "foot",
-                  "type": "groundContact",
+                  "sensorType": "groundContact",
+                  "category": [
+                    "Sensor"
+                  ],
                   "mask": [
                     "Ground"
                   ],

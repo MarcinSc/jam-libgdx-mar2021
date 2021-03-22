@@ -1,6 +1,7 @@
 package com.gempukku.jam.libgdx.march2021.system.sensor;
 
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.SensorContactListener;
 
 public class ContactSensorContactListener implements SensorContactListener<ContactSensorData> {
     private short collisionBits;

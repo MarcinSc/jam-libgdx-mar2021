@@ -15,12 +15,16 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.gempukku.jam.libgdx.march2021.system.CameraSystem;
 import com.gempukku.jam.libgdx.march2021.system.DirectTextureLoader;
 import com.gempukku.jam.libgdx.march2021.system.FiniteStateSystem;
 import com.gempukku.jam.libgdx.march2021.system.InputControlSystem;
 import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
+import com.gempukku.jam.libgdx.march2021.system.sensor.ContactSensorContactListener;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.Box2DSystem;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.EntityPositionUpdateListener;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.TextureLoader;
 import com.gempukku.libgdx.graph.loader.GraphLoader;
@@ -28,6 +32,7 @@ import com.gempukku.libgdx.graph.pipeline.PipelineLoaderCallback;
 import com.gempukku.libgdx.graph.pipeline.PipelineRenderer;
 import com.gempukku.libgdx.graph.pipeline.RenderOutputs;
 import com.gempukku.libgdx.graph.time.TimeProvider;
+import com.gempukku.libgdx.lib.template.JsonTemplateLoader;
 import com.gempukku.libgdx.lib.template.ashley.AshleyEngineJson;
 import com.gempukku.libgdx.lib.template.ashley.AshleyTemplateEntityLoader;
 import com.gempukku.libgdx.lib.template.ashley.EntityDef;
@@ -111,10 +116,10 @@ public class GameScene implements Scene {
         ClasspathFileHandleResolver fileHandleResolver = new ClasspathFileHandleResolver();
         createEntity(AshleyTemplateEntityLoader.loadTemplate("handWrittenEntities/player/player.json", json, fileHandleResolver));
 
-//        JsonValue level = JsonTemplateLoader.loadTemplateFromFile("entity/level/level1.json", fileHandleResolver);
-//        for (JsonValue entity : level.get("entities")) {
-//            createEntity(AshleyTemplateEntityLoader.convertToAshley(entity, json));
-//        }
+        JsonValue level = JsonTemplateLoader.loadTemplateFromFile("entities/level-1.json", fileHandleResolver);
+        for (JsonValue entity : level.get("entities")) {
+            createEntity(AshleyTemplateEntityLoader.convertToAshley(entity, json));
+        }
     }
 
     private void createEntity(EntityDef template) {
@@ -150,10 +155,21 @@ public class GameScene implements Scene {
         engine.addSystem(finiteStateSystem);
 
         Box2DSystem box2DSystem = new Box2DSystem(10, new Vector2(0, -15f), false, 100);
+        box2DSystem.addSensorContactListener("groundContact", new ContactSensorContactListener(box2DSystem.getBitForCategory("Ground")));
         engine.addSystem(box2DSystem);
 
         RenderingSystem renderingSystem = new RenderingSystem(20, timeSystem.getTimeProvider(), pipelineRenderer, textureLoader);
         engine.addSystem(renderingSystem);
+
+        box2DSystem.addEntityPositionUpdateListener(
+                new EntityPositionUpdateListener() {
+                    @Override
+                    public void positionUpdated(Entity entity) {
+                        if (entity.getComponent(SpriteComponent.class) != null) {
+                            renderingSystem.updateSprite(entity);
+                        }
+                    }
+                });
 
         CameraSystem cameraSystem = new CameraSystem(30, camera);
         engine.addSystem(cameraSystem);
