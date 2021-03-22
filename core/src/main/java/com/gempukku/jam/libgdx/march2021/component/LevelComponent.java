@@ -5,10 +5,15 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class LevelComponent implements Component {
+    private String color;
     private Rectangle bounds;
     private Rectangle snapWindow;
     private Vector2 snapSpeed;
     private Rectangle lockWindow;
+
+    public String getColor() {
+        return color;
+    }
 
     public Rectangle getBounds() {
         return bounds;

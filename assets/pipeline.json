@@ -13,12 +13,13 @@
       }
     },
     {
-      "id": "b5610adeabe44ebe92bea7eb5f53259f",
-      "type": "ValueColor",
-      "x": 69.0,
+      "id": "9caa496759d949d0a0deb7b46547ae16",
+      "type": "Property",
+      "x": 88.0,
       "y": 487.0,
       "data": {
-        "color": "5e5e5eff"
+        "name": "Background",
+        "type": "Color"
       }
     },
     {
@@ -417,12 +418,6 @@
   ],
   "connections": [
     {
-      "fromNode": "b5610adeabe44ebe92bea7eb5f53259f",
-      "fromField": "value",
-      "toNode": "e856fcafa98141b8819599ff70ed2d53",
-      "toField": "background"
-    },
-    {
       "fromNode": "e856fcafa98141b8819599ff70ed2d53",
       "fromField": "output",
       "toNode": "0c1699efe0414cf295be58e74319f00a",
@@ -439,12 +434,25 @@
       "fromField": "value",
       "toNode": "0c1699efe0414cf295be58e74319f00a",
       "toField": "camera"
+    },
+    {
+      "fromNode": "9caa496759d949d0a0deb7b46547ae16",
+      "fromField": "value",
+      "toNode": "e856fcafa98141b8819599ff70ed2d53",
+      "toField": "background"
     }
   ],
   "properties": [
     {
       "name": "Camera",
       "type": "Camera"
+    },
+    {
+      "name": "Background",
+      "type": "Color",
+      "data": {
+        "color": "ffffffff"
+      }
     }
   ],
   "groups": []

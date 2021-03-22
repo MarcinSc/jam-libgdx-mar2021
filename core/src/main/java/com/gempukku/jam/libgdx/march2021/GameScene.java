@@ -20,6 +20,7 @@ import com.gempukku.jam.libgdx.march2021.system.CameraSystem;
 import com.gempukku.jam.libgdx.march2021.system.DirectTextureLoader;
 import com.gempukku.jam.libgdx.march2021.system.FiniteStateSystem;
 import com.gempukku.jam.libgdx.march2021.system.InputControlSystem;
+import com.gempukku.jam.libgdx.march2021.system.LevelSetupSystem;
 import com.gempukku.jam.libgdx.march2021.system.SpawnSystem;
 import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
 import com.gempukku.jam.libgdx.march2021.system.sensor.ContactSensorContactListener;
@@ -162,6 +163,9 @@ public class GameScene implements Scene {
 
         InputControlSystem inputControlSystem = new InputControlSystem(2);
         engine.addSystem(inputControlSystem);
+
+        LevelSetupSystem levelSetupSystem = new LevelSetupSystem(3, pipelineRenderer);
+        engine.addSystem(levelSetupSystem);
 
         FiniteStateSystem finiteStateSystem = new FiniteStateSystem(5);
         engine.addSystem(finiteStateSystem);
