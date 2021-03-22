@@ -14,7 +14,7 @@ public class DesktopLauncher {
     }
 
     private static LwjglApplication createApplication() {
-        return new LwjglApplication(new JamMarch2021(), getDefaultConfiguration());
+        return new LwjglApplication(new JamMarch2021(new DesktopProfilerInfoProvider()), getDefaultConfiguration());
     }
 
     private static LwjglApplicationConfiguration getDefaultConfiguration() {
