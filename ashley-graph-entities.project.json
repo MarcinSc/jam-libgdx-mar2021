@@ -292,6 +292,7 @@
                 "Space": "Space"
               },
               "stateKeys": {
+                "Right": "Right",
                 "Left": "Left"
               }
             }

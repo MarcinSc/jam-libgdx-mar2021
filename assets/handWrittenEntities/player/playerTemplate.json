@@ -208,5 +208,14 @@
   },
   "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
     "faceDirection": "Right"
+  },
+  "com.gempukku.jam.libgdx.march2021.component.InputControlledComponent": {
+    "triggerKeyMapping": {
+      "Space": "Space"
+    },
+    "stateKeys": {
+      "Right": "Right",
+      "Left": "Left"
+    }
   }
 }
