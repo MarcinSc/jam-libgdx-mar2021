@@ -11,6 +11,86 @@
       "name": "level-1",
       "entities": [
         {
+          "path": "Ground",
+          "data": {
+            "id": "4ea455110273420d9b760cc4d9223caf",
+            "name": "Ground",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": -224
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment",
+                        "Ground"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 1920,
+                        "height": 16,
+                        "center": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 10,
+                  "width": 1920,
+                  "height": 32,
+                  "tags": [
+                    "Tiled"
+                  ],
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/environment/ground.png"
+                    },
+                    "Tile Repeat": {
+                      "class": "com.badlogic.gdx.math.Vector2",
+                      "x": 40,
+                      "y": 1
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
           "path": null,
           "data": {
             "id": "03a85db74dbf434c9d020d10f253eae4",
@@ -21,15 +101,15 @@
                 "id": "5d8dc22ac18a45bab95b9aa008fa1f7c",
                 "data": {
                   "bounds": {
-                    "x": 0.0,
-                    "y": 0.0,
+                    "x": -960.0,
+                    "y": -240.0,
                     "width": 1920.0,
                     "height": 480.0
                   },
                   "snapWindow": {
                     "x": 0.30000001192092896,
                     "y": 0.30000001192092896,
-                    "width": 0.4000000059604645,
+                    "width": 0.20000000298023224,
                     "height": 0.20000000298023224
                   },
                   "snapSpeed": {
@@ -39,9 +119,64 @@
                   "lockWindow": {
                     "x": 0.20000000298023224,
                     "y": 0.10000000149011612,
-                    "width": 0.6000000238418579,
+                    "width": 0.4000000059604645,
                     "height": 0.6000000238418579
                   }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "dd8f55cf4e484082b0aa9559e605d9f7",
+            "name": "Spawn",
+            "templates": [],
+            "components": [
+              {
+                "id": "260ef9f516514a7fa776f5386a59fedd",
+                "data": {}
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -912,
+                  "y": -192
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "level-1-back",
+      "entities": [
+        {
+          "path": null,
+          "data": {
+            "id": "bd75455b5a354821bf78f4ddda35aefd",
+            "name": "Background",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 90,
+                  "width": 1920,
+                  "height": 480,
+                  "tags": [
+                    "Animated"
+                  ],
+                  "properties": {}
                 }
               }
             ]
@@ -119,6 +254,20 @@
           "fieldTypeId": "Rectangle"
         }
       ]
+    },
+    {
+      "id": "9a2cf7e7894d40548042bc466aad8417",
+      "name": "PlayerComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.PlayerComponent",
+      "component": true,
+      "fields": []
+    },
+    {
+      "id": "260ef9f516514a7fa776f5386a59fedd",
+      "name": "PlayerSpawnComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent",
+      "component": true,
+      "fields": []
     }
   ],
   "templates": [
@@ -126,7 +275,7 @@
       "path": null,
       "data": {
         "id": "b0b3d50ffb6b47a7bf5071b7cd39922b",
-        "name": "player",
+        "name": "Player",
         "templates": [],
         "components": [
           {
@@ -264,7 +413,7 @@
             "id": "Box2DBodyComponent",
             "data": {
               "bodyType": "DynamicBody",
-              "fixedRotation": true,
+              "fixedRotation": false,
               "bullet": false,
               "linearDamping": 0,
               "angularDamping": 0,
@@ -290,7 +439,7 @@
                     "height": 48,
                     "center": {
                       "x": 0,
-                      "y": 0
+                      "y": -2
                     },
                     "angle": 0
                   }
@@ -314,7 +463,7 @@
                     "height": 4,
                     "center": {
                       "x": 0,
-                      "y": 0
+                      "y": -26
                     },
                     "angle": 0
                   }
@@ -357,6 +506,10 @@
             }
           },
           {
+            "id": "9a2cf7e7894d40548042bc466aad8417",
+            "data": {}
+          },
+          {
             "id": "FacingComponent",
             "data": {
               "faceDirection": "Right"
@@ -366,7 +519,7 @@
             "id": "e0e74dec8a9e45fe8fe8a44ebaa14101",
             "data": {
               "triggerKeyMapping": {
-                "Space": "Space"
+                "Jump": "Space"
               },
               "stateKeys": {
                 "Right": "Right",

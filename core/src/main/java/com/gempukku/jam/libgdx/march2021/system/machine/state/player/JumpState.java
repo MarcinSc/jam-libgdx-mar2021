@@ -9,6 +9,7 @@ import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBody
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FaceDirection;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteStateComponent;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 import com.gempukku.libgdx.graph.time.TimeProvider;
 
 public class JumpState extends EngineTriggerState {
@@ -26,6 +27,7 @@ public class JumpState extends EngineTriggerState {
 
         SpriteStateComponent spriteState = entity.getComponent(SpriteStateComponent.class);
         spriteState.setState("Jump");
+        engine.getSystem(RenderingSystem.class).updateSprite(entity);
     }
 
     private TimeProvider getTimeProvider() {

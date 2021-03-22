@@ -20,6 +20,7 @@ import com.gempukku.jam.libgdx.march2021.system.CameraSystem;
 import com.gempukku.jam.libgdx.march2021.system.DirectTextureLoader;
 import com.gempukku.jam.libgdx.march2021.system.FiniteStateSystem;
 import com.gempukku.jam.libgdx.march2021.system.InputControlSystem;
+import com.gempukku.jam.libgdx.march2021.system.SpawnSystem;
 import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
 import com.gempukku.jam.libgdx.march2021.system.sensor.ContactSensorContactListener;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent;
@@ -92,6 +93,12 @@ public class GameScene implements Scene {
 
         engine.update(Gdx.graphics.getDeltaTime());
 
+//        System.out.println("Camera position: " + camera.position);
+//        for (Entity player : engine.getEntitiesFor(Family.all(PlayerComponent.class).get())) {
+//            PositionComponent position = player.getComponent(PositionComponent.class);
+//            System.out.println("Character position: " + position.getX() + ", " + position.getY());
+//        }
+
         performanceProfiler.beforeDraw();
         pipelineRenderer.render(RenderOutputs.drawToScreen);
         Box2DSystem box2DSystem = engine.getSystem(Box2DSystem.class);
@@ -145,10 +152,13 @@ public class GameScene implements Scene {
         TimeSystem timeSystem = new TimeSystem(0);
         engine.addSystem(timeSystem);
 
+        SpawnSystem spawnSystem = new SpawnSystem(1);
+        engine.addSystem(spawnSystem);
+
         pipelineRenderer = loadPipeline(timeSystem.getTimeProvider(), camera);
         resources.add(pipelineRenderer);
 
-        InputControlSystem inputControlSystem = new InputControlSystem(1);
+        InputControlSystem inputControlSystem = new InputControlSystem(2);
         engine.addSystem(inputControlSystem);
 
         FiniteStateSystem finiteStateSystem = new FiniteStateSystem(5);
@@ -166,7 +176,7 @@ public class GameScene implements Scene {
                     @Override
                     public void positionUpdated(Entity entity) {
                         if (entity.getComponent(SpriteComponent.class) != null) {
-                            renderingSystem.updateSprite(entity);
+                            renderingSystem.updateSpriteData(entity);
                         }
                     }
                 });

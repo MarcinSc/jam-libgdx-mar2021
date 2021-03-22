@@ -1,0 +1,20 @@
+{
+  "entities": [
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 0,
+        "y": 0
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+        "layer": 90,
+        "width": 1920,
+        "height": 480,
+        "tags": [
+          "Animated"
+        ],
+        "properties": {}
+      }
+    }
+  ]
+}

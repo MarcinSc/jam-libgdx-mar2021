@@ -1,6 +1,6 @@
 {
   "tpl:extends": [
-    "handWrittenEntities/player/playerTemplate.json",
+    "templates/Player.json",
     "handWrittenEntities/player/playerStateMachine.json"
   ],
   "com.gempukku.jam.libgdx.march2021.component.CameraFocusComponent": {

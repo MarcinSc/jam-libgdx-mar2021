@@ -1,0 +1,103 @@
+{
+  "entities": [
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 0,
+        "y": -224
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment",
+              "Ground"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 1920,
+              "height": 16,
+              "center": {
+                "x": 0,
+                "y": 0
+              },
+              "angle": 0
+            }
+          }
+        ]
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+        "layer": 10,
+        "width": 1920,
+        "height": 32,
+        "tags": [
+          "Tiled"
+        ],
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/environment/ground.png"
+          },
+          "Tile Repeat": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 40,
+            "y": 1
+          }
+        }
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.LevelComponent": {
+        "bounds": {
+          "x": -960.0,
+          "y": -240.0,
+          "width": 1920.0,
+          "height": 480.0
+        },
+        "snapWindow": {
+          "x": 0.30000001192092896,
+          "y": 0.30000001192092896,
+          "width": 0.20000000298023224,
+          "height": 0.20000000298023224
+        },
+        "snapSpeed": {
+          "x": 0.20000000298023224,
+          "y": 0.20000000298023224
+        },
+        "lockWindow": {
+          "x": 0.20000000298023224,
+          "y": 0.10000000149011612,
+          "width": 0.4000000059604645,
+          "height": 0.6000000238418579
+        }
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent": {},
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -912,
+        "y": -192
+      }
+    }
+  ]
+}

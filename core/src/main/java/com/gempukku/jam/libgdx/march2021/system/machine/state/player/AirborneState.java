@@ -8,6 +8,7 @@ import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBody
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FaceDirection;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteStateComponent;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 
 public class AirborneState extends EngineTriggerState {
     @Override
@@ -18,6 +19,7 @@ public class AirborneState extends EngineTriggerState {
     public void transitioningFrom(String oldState) {
         SpriteStateComponent spriteState = entity.getComponent(SpriteStateComponent.class);
         spriteState.setState("Airborne");
+        engine.getSystem(RenderingSystem.class).updateSprite(entity);
     }
 
     @Override

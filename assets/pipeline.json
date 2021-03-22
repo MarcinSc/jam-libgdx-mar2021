@@ -267,6 +267,143 @@
                 }
               ]
             }
+          },
+          {
+            "id": "116d62d1c2734cabbe7eafd987e266ce",
+            "tag": "Tiled",
+            "shader": {
+              "version": "0.5.0",
+              "type": "Sprite_Shader",
+              "nodes": [
+                {
+                  "id": "bfbfe2c23431449bb1334e16c764d540",
+                  "type": "Property",
+                  "x": 254.0,
+                  "y": 554.0,
+                  "data": {
+                    "uWrap": "Repeat",
+                    "vWrap": "Repeat",
+                    "name": "Texture",
+                    "type": "TextureRegion"
+                  }
+                },
+                {
+                  "id": "f96fca98d0294cb093ba0ea6dd65772f",
+                  "type": "Property",
+                  "x": 51.0,
+                  "y": 340.0,
+                  "data": {
+                    "name": "Tile Offset",
+                    "type": "Vector2"
+                  }
+                },
+                {
+                  "id": "04220cbcdab142f29ba7570618f68c20",
+                  "type": "Property",
+                  "x": 50.0,
+                  "y": 397.0,
+                  "data": {
+                    "name": "Tile Repeat",
+                    "type": "Vector2"
+                  }
+                },
+                {
+                  "id": "847523885dc24a769f3aa2e8552f7e0e",
+                  "type": "UVTilingOffset",
+                  "x": 247.0,
+                  "y": 409.0
+                },
+                {
+                  "id": "60bba06234a9453294a88efa8fee7e72",
+                  "type": "SpriteUV",
+                  "x": 50.0,
+                  "y": 455.0
+                },
+                {
+                  "id": "8b6e6e7d79584a7f9464c299688aea36",
+                  "type": "Sampler2D",
+                  "x": 460.0,
+                  "y": 386.0
+                },
+                {
+                  "id": "end",
+                  "type": "SpriteShaderEnd",
+                  "x": 748.0,
+                  "y": 50.0,
+                  "data": {
+                    "blending": "opaque",
+                    "depthTest": "less"
+                  }
+                }
+              ],
+              "connections": [
+                {
+                  "fromNode": "bfbfe2c23431449bb1334e16c764d540",
+                  "fromField": "value",
+                  "toNode": "8b6e6e7d79584a7f9464c299688aea36",
+                  "toField": "texture"
+                },
+                {
+                  "fromNode": "8b6e6e7d79584a7f9464c299688aea36",
+                  "fromField": "color",
+                  "toNode": "end",
+                  "toField": "color"
+                },
+                {
+                  "fromNode": "8b6e6e7d79584a7f9464c299688aea36",
+                  "fromField": "a",
+                  "toNode": "end",
+                  "toField": "alpha"
+                },
+                {
+                  "fromNode": "04220cbcdab142f29ba7570618f68c20",
+                  "fromField": "value",
+                  "toNode": "847523885dc24a769f3aa2e8552f7e0e",
+                  "toField": "tiling"
+                },
+                {
+                  "fromNode": "f96fca98d0294cb093ba0ea6dd65772f",
+                  "fromField": "value",
+                  "toNode": "847523885dc24a769f3aa2e8552f7e0e",
+                  "toField": "offset"
+                },
+                {
+                  "fromNode": "60bba06234a9453294a88efa8fee7e72",
+                  "fromField": "uv",
+                  "toNode": "847523885dc24a769f3aa2e8552f7e0e",
+                  "toField": "uv"
+                },
+                {
+                  "fromNode": "847523885dc24a769f3aa2e8552f7e0e",
+                  "fromField": "output",
+                  "toNode": "8b6e6e7d79584a7f9464c299688aea36",
+                  "toField": "uv"
+                }
+              ],
+              "properties": [
+                {
+                  "name": "Tile Repeat",
+                  "type": "Vector2",
+                  "data": {
+                    "x": 1.0,
+                    "y": 1.0
+                  }
+                },
+                {
+                  "name": "Texture",
+                  "type": "TextureRegion"
+                },
+                {
+                  "name": "Tile Offset",
+                  "type": "Vector2",
+                  "data": {
+                    "x": 0.0,
+                    "y": 0.0
+                  }
+                }
+              ],
+              "groups": []
+            }
           }
         ]
       }

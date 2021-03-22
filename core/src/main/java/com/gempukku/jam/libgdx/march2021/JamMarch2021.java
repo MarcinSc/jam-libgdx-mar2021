@@ -1,6 +1,5 @@
 package com.gempukku.jam.libgdx.march2021;
 
-import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Cubemap;
@@ -25,8 +24,6 @@ public class JamMarch2021 extends ApplicationAdapter {
 
     @Override
     public void create() {
-        Gdx.app.setLogLevel(Application.LOG_DEBUG);
-
         UIPluginRuntimeInitializer.register();
         SpritesPluginRuntimeInitializer.register();
 

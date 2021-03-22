@@ -8,6 +8,7 @@ import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBody
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FaceDirection;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteStateComponent;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 
 public class WalkIdleState extends EngineTriggerState {
     private boolean idle;
@@ -54,12 +55,14 @@ public class WalkIdleState extends EngineTriggerState {
     private void setIdle() {
         SpriteStateComponent spriteState = entity.getComponent(SpriteStateComponent.class);
         spriteState.setState("Idle");
+        engine.getSystem(RenderingSystem.class).updateSprite(entity);
         idle = true;
     }
 
     private void setWalk() {
         SpriteStateComponent spriteState = entity.getComponent(SpriteStateComponent.class);
         spriteState.setState("Walk");
+        engine.getSystem(RenderingSystem.class).updateSprite(entity);
         idle = false;
     }
 }
