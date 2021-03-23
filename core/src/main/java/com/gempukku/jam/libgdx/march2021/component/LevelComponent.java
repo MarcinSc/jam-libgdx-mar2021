@@ -11,6 +11,10 @@ public class LevelComponent implements Component {
     private Vector2 snapSpeed;
     private Rectangle lockWindow;
 
+    private int number;
+    private String title;
+    private String quote;
+
     public String getColor() {
         return color;
     }
@@ -29,5 +33,17 @@ public class LevelComponent implements Component {
 
     public Rectangle getLockWindow() {
         return lockWindow;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getQuote() {
+        return quote;
     }
 }
