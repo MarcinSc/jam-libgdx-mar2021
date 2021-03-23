@@ -218,11 +218,15 @@
   },
   "com.gempukku.jam.libgdx.march2021.component.InputControlledComponent": {
     "triggerKeyMapping": {
-      "Jump": "Space"
+      "Jump": "W|Up",
+      "Attack": "Space"
     },
     "stateKeys": {
-      "Right": "Right",
-      "Left": "Left"
+      "Right": "D|Right",
+      "Left": "A|Left"
     }
+  },
+  "com.gempukku.jam.libgdx.march2021.component.AttackerComponent": {
+    "damage": 1
   }
 }

@@ -13,6 +13,11 @@
       },
       "Airborne": {
         "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.player.AirborneState"
+      },
+      "Attack": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.player.AttackState",
+        "attackAfter": 0.05,
+        "attackSensor": "parasolAttack"
       }
     },
     "transitions": {
@@ -32,6 +37,22 @@
         "Airborne": {
           "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasNoContactCondition",
           "sensor": "foot"
+        },
+        "Attack": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.AndCondition",
+          "conditions": [
+            {
+              "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.WhenKeyPressedWithinCondition",
+              "time": 0.1,
+              "keyMapping": [
+                "Attack"
+              ]
+            },
+            {
+              "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.NotAttackedWithinCondition",
+              "time": 0.3
+            }
+          ]
         }
       },
       "Jump": {
@@ -44,6 +65,28 @@
         "Walk/Idle": {
           "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasContactCondition",
           "sensor": "foot"
+        },
+        "Attack": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.AndCondition",
+          "conditions": [
+            {
+              "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.WhenKeyPressedWithinCondition",
+              "time": 0.1,
+              "keyMapping": [
+                "Attack"
+              ]
+            },
+            {
+              "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.NotAttackedWithinCondition",
+              "time": 0.3
+            }
+          ]
+        }
+      },
+      "Attack": {
+        "Walk/Idle": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.TimeCondition",
+          "time": 0.3
         }
       }
     }

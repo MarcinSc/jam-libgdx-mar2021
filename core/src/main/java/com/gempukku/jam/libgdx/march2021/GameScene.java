@@ -17,6 +17,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.gempukku.jam.libgdx.march2021.system.CameraSystem;
+import com.gempukku.jam.libgdx.march2021.system.CombatSystem;
 import com.gempukku.jam.libgdx.march2021.system.DirectTextureLoader;
 import com.gempukku.jam.libgdx.march2021.system.FiniteStateSystem;
 import com.gempukku.jam.libgdx.march2021.system.InputControlSystem;
@@ -166,6 +167,9 @@ public class GameScene implements Scene {
 
         LevelSetupSystem levelSetupSystem = new LevelSetupSystem(3, pipelineRenderer);
         engine.addSystem(levelSetupSystem);
+
+        CombatSystem combatSystem = new CombatSystem(4);
+        engine.addSystem(combatSystem);
 
         FiniteStateSystem finiteStateSystem = new FiniteStateSystem(5);
         engine.addSystem(finiteStateSystem);

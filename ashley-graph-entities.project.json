@@ -401,6 +401,19 @@
       ]
     },
     {
+      "id": "0a136a1508e540f7880e00ea11ca473e",
+      "name": "AttackerComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.AttackerComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "damage",
+          "type": "Object",
+          "fieldTypeId": "int"
+        }
+      ]
+    },
+    {
       "id": "e0e74dec8a9e45fe8fe8a44ebaa14101",
       "name": "InputControlledComponent",
       "className": "com.gempukku.jam.libgdx.march2021.component.InputControlledComponent",
@@ -815,12 +828,19 @@
             "id": "e0e74dec8a9e45fe8fe8a44ebaa14101",
             "data": {
               "triggerKeyMapping": {
-                "Jump": "Space"
+                "Jump": "W|Up",
+                "Attack": "Space"
               },
               "stateKeys": {
-                "Right": "Right",
-                "Left": "Left"
+                "Right": "D|Right",
+                "Left": "A|Left"
               }
+            }
+          },
+          {
+            "id": "0a136a1508e540f7880e00ea11ca473e",
+            "data": {
+              "damage": 1
             }
           }
         ]
