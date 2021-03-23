@@ -1,6 +1,33 @@
 {
   "entities": [
     {
+      "tpl:extends": [
+        "templates/Cloud1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -177,
+        "y": 83
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Cloud1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 108,
+        "y": 78
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Pillar.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -144,
+        "y": -80
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": 0,
@@ -65,6 +92,33 @@
       }
     },
     {
+      "tpl:extends": [
+        "templates/Pillar.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -480,
+        "y": -80
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Pillar.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -480,
+        "y": -32
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Pillar.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -480,
+        "y": 16
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.jam.libgdx.march2021.component.LevelComponent": {
         "bounds": {
@@ -89,14 +143,14 @@
           "width": 0.4000000059604645,
           "height": 0.6000000238418579
         },
-        "color": "5cbbdb"
+        "color": "89dceb"
       }
     },
     {
       "tpl:extends": [],
       "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent": {},
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -448,
+        "x": -432,
         "y": -96
       }
     }

@@ -11,7 +11,64 @@
       "name": "level-1",
       "entities": [
         {
-          "path": "Ground",
+          "path": null,
+          "data": {
+            "id": "965bf4e1f7484c6f8d9093345f026156",
+            "name": "Cloud1",
+            "templates": [
+              "0494ff7fef3345108ab3f5ad5ac1fdcc"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -177,
+                  "y": 83
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "52cd3fb862f843e5a84552b6479382a0",
+            "name": "Cloud2",
+            "templates": [
+              "0494ff7fef3345108ab3f5ad5ac1fdcc"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 108,
+                  "y": 78
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "dfc5ad417f4242d2a5b80d74860dc517",
+            "name": "FirstPillar",
+            "templates": [
+              "51cb30644f4a401cb8eb81d728f217e3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -144,
+                  "y": -80
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
           "data": {
             "id": "4ea455110273420d9b760cc4d9223caf",
             "name": "Ground",
@@ -93,6 +150,63 @@
         {
           "path": null,
           "data": {
+            "id": "c097359625d54051aeae0260c7caafc8",
+            "name": "LeftWall1",
+            "templates": [
+              "51cb30644f4a401cb8eb81d728f217e3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -480,
+                  "y": -80
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "5581fbc3f0654c80b8aeb963c044ae7f",
+            "name": "LeftWall2",
+            "templates": [
+              "51cb30644f4a401cb8eb81d728f217e3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -480,
+                  "y": -32
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "3e3dd35576f643f0b2732f0ff4b48403",
+            "name": "LeftWall3",
+            "templates": [
+              "51cb30644f4a401cb8eb81d728f217e3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -480,
+                  "y": 16
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
             "id": "03a85db74dbf434c9d020d10f253eae4",
             "name": "Level",
             "templates": [],
@@ -122,7 +236,7 @@
                     "width": 0.4000000059604645,
                     "height": 0.6000000238418579
                   },
-                  "color": "5cbbdb"
+                  "color": "89dceb"
                 }
               }
             ]
@@ -142,7 +256,7 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": -448,
+                  "x": -432,
                   "y": -96
                 }
               }
@@ -171,7 +285,7 @@
               {
                 "id": "SpriteComponent",
                 "data": {
-                  "layer": 90,
+                  "layer": 100,
                   "width": 960,
                   "height": 240,
                   "tags": [
@@ -277,6 +391,106 @@
     }
   ],
   "templates": [
+    {
+      "path": null,
+      "data": {
+        "id": "0494ff7fef3345108ab3f5ad5ac1fdcc",
+        "name": "Cloud1",
+        "templates": [],
+        "components": [
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 99,
+              "width": 96,
+              "height": 48,
+              "tags": [
+                "Parallax"
+              ],
+              "properties": {
+                "Parallax": {
+                  "class": "java.lang.Float",
+                  "value": 0.7
+                },
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/environment/cloud1.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "51cb30644f4a401cb8eb81d728f217e3",
+        "name": "Pillar",
+        "templates": [],
+        "components": [
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "StaticBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Environment",
+                    "Ground"
+                  ],
+                  "mask": [
+                    "Character",
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 16,
+                    "height": 64,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 8,
+              "width": 48,
+              "height": 64,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/environment/pillar.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
     {
       "path": null,
       "data": {
@@ -399,7 +613,7 @@
                     },
                     "Sprite Count": {
                       "class": "com.badlogic.gdx.math.Vector2",
-                      "x": 4,
+                      "x": 1,
                       "y": 1
                     },
                     "Animation Speed": {
@@ -427,7 +641,7 @@
               "gravityScale": 1,
               "fixtures": [
                 {
-                  "friction": 0.2,
+                  "friction": 0,
                   "restitution": 0,
                   "density": 0,
                   "sensor": false,
@@ -497,7 +711,7 @@
                 },
                 "Sprite Count": {
                   "class": "com.badlogic.gdx.math.Vector2",
-                  "x": 4,
+                  "x": 1,
                   "y": 1
                 },
                 "Animation Speed": {

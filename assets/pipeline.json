@@ -405,6 +405,170 @@
               ],
               "groups": []
             }
+          },
+          {
+            "id": "bb921b2d2652431ca43bafc813c13468",
+            "tag": "Parallax",
+            "shader": {
+              "version": "0.5.0",
+              "type": "Sprite_Shader",
+              "nodes": [
+                {
+                  "id": "b44d8a0b4fa6448488f7bff4f49ca988",
+                  "type": "Add",
+                  "x": 797.0,
+                  "y": 577.0
+                },
+                {
+                  "id": "b73b1638057a4e4da092a0ecac374106",
+                  "type": "Property",
+                  "x": 376.0,
+                  "y": 546.0,
+                  "data": {
+                    "name": "Parallax",
+                    "type": "Float"
+                  }
+                },
+                {
+                  "id": "3670b11a8de7479891a5aee108f92dd9",
+                  "type": "RemapVector",
+                  "x": 349.0,
+                  "y": 621.0,
+                  "data": {
+                    "x": "X",
+                    "y": "Y",
+                    "z": "Z",
+                    "w": "W"
+                  }
+                },
+                {
+                  "id": "9efa608ca5504b3b86b4f6ba9740958b",
+                  "type": "CameraPosition",
+                  "x": 156.0,
+                  "y": 713.0
+                },
+                {
+                  "id": "end",
+                  "type": "SpriteShaderEnd",
+                  "x": 989.0,
+                  "y": 50.0,
+                  "data": {
+                    "blending": "opaque",
+                    "depthTest": "less"
+                  }
+                },
+                {
+                  "id": "5cd47c2210744a0986e17bbe6bac6e41",
+                  "type": "Property",
+                  "x": 51.0,
+                  "y": 351.0000305175781,
+                  "data": {
+                    "name": "Texture",
+                    "type": "TextureRegion"
+                  }
+                },
+                {
+                  "id": "7673558191ba4ffe94c0cd25404f7cc9",
+                  "type": "Multiply",
+                  "x": 612.0,
+                  "y": 596.0
+                },
+                {
+                  "id": "ac18d737cf224d54b977a584806969ff",
+                  "type": "SpritePosition",
+                  "x": 614.0,
+                  "y": 518.0
+                },
+                {
+                  "id": "fb0f02a33526463ca9a95813548caab9",
+                  "type": "SpriteUV",
+                  "x": 50.0,
+                  "y": 285.0000305175781
+                },
+                {
+                  "id": "27e1ccdef46746abb89365e14f3feb50",
+                  "type": "Sampler2D",
+                  "x": 264.0,
+                  "y": 239.00003051757812
+                }
+              ],
+              "connections": [
+                {
+                  "fromNode": "fb0f02a33526463ca9a95813548caab9",
+                  "fromField": "uv",
+                  "toNode": "27e1ccdef46746abb89365e14f3feb50",
+                  "toField": "uv"
+                },
+                {
+                  "fromNode": "5cd47c2210744a0986e17bbe6bac6e41",
+                  "fromField": "value",
+                  "toNode": "27e1ccdef46746abb89365e14f3feb50",
+                  "toField": "texture"
+                },
+                {
+                  "fromNode": "27e1ccdef46746abb89365e14f3feb50",
+                  "fromField": "color",
+                  "toNode": "end",
+                  "toField": "color"
+                },
+                {
+                  "fromNode": "27e1ccdef46746abb89365e14f3feb50",
+                  "fromField": "a",
+                  "toNode": "end",
+                  "toField": "alpha"
+                },
+                {
+                  "fromNode": "9efa608ca5504b3b86b4f6ba9740958b",
+                  "fromField": "position",
+                  "toNode": "3670b11a8de7479891a5aee108f92dd9",
+                  "toField": "input"
+                },
+                {
+                  "fromNode": "b73b1638057a4e4da092a0ecac374106",
+                  "fromField": "value",
+                  "toNode": "7673558191ba4ffe94c0cd25404f7cc9",
+                  "toField": "inputs"
+                },
+                {
+                  "fromNode": "7673558191ba4ffe94c0cd25404f7cc9",
+                  "fromField": "output",
+                  "toNode": "b44d8a0b4fa6448488f7bff4f49ca988",
+                  "toField": "inputs"
+                },
+                {
+                  "fromNode": "ac18d737cf224d54b977a584806969ff",
+                  "fromField": "position",
+                  "toNode": "b44d8a0b4fa6448488f7bff4f49ca988",
+                  "toField": "inputs"
+                },
+                {
+                  "fromNode": "b44d8a0b4fa6448488f7bff4f49ca988",
+                  "fromField": "output",
+                  "toNode": "end",
+                  "toField": "position"
+                },
+                {
+                  "fromNode": "3670b11a8de7479891a5aee108f92dd9",
+                  "fromField": "v2",
+                  "toNode": "7673558191ba4ffe94c0cd25404f7cc9",
+                  "toField": "inputs"
+                }
+              ],
+              "properties": [
+                {
+                  "name": "Texture",
+                  "type": "TextureRegion"
+                },
+                {
+                  "name": "Parallax",
+                  "type": "Float",
+                  "data": {
+                    "x": 0.10000000149011612
+                  }
+                }
+              ],
+              "groups": []
+            }
           }
         ]
       }
