@@ -108,6 +108,82 @@
         {
           "path": null,
           "data": {
+            "id": "940a2c2886074efb9da927f62c1aebcd",
+            "name": "Destroy Hedge",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 80,
+                  "y": -16
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment",
+                        "Ground",
+                        "Attackable"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 36,
+                        "height": 180,
+                        "center": {
+                          "x": 0,
+                          "y": -5
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 8,
+                  "width": 64,
+                  "height": 192,
+                  "tags": [
+                    "Animated"
+                  ],
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/environment/hedge.png"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
             "id": "4ea455110273420d9b760cc4d9223caf",
             "name": "Ground",
             "templates": [],
@@ -197,7 +273,7 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": -144,
+                  "x": -224,
                   "y": -80
                 }
               }
@@ -278,7 +354,7 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": 0,
+                  "x": 1,
                   "y": 0
                 }
               },

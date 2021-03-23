@@ -48,6 +48,66 @@
     {
       "tpl:extends": [],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 80,
+        "y": -16
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment",
+              "Ground",
+              "Attackable"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 36,
+              "height": 180,
+              "center": {
+                "x": 0,
+                "y": -5
+              },
+              "angle": 0
+            }
+          }
+        ]
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+        "layer": 8,
+        "width": 64,
+        "height": 192,
+        "tags": [
+          "Animated"
+        ],
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/environment/hedge.png"
+          }
+        }
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": 0,
         "y": -112
       },
@@ -114,7 +174,7 @@
         "templates/Pillar.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -144,
+        "x": -224,
         "y": -80
       }
     },
