@@ -11,7 +11,7 @@
       "name": "level-1",
       "entities": [
         {
-          "path": null,
+          "path": "Clouds",
           "data": {
             "id": "965bf4e1f7484c6f8d9093345f026156",
             "name": "Cloud1",
@@ -30,7 +30,7 @@
           }
         },
         {
-          "path": null,
+          "path": "Clouds",
           "data": {
             "id": "52cd3fb862f843e5a84552b6479382a0",
             "name": "Cloud2",
@@ -49,10 +49,10 @@
           }
         },
         {
-          "path": null,
+          "path": "Left Wall",
           "data": {
-            "id": "dfc5ad417f4242d2a5b80d74860dc517",
-            "name": "FirstPillar",
+            "id": "c097359625d54051aeae0260c7caafc8",
+            "name": "LeftWall1",
             "templates": [
               "51cb30644f4a401cb8eb81d728f217e3"
             ],
@@ -60,8 +60,46 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": -144,
+                  "x": -480,
                   "y": -80
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Left Wall",
+          "data": {
+            "id": "5581fbc3f0654c80b8aeb963c044ae7f",
+            "name": "LeftWall2",
+            "templates": [
+              "51cb30644f4a401cb8eb81d728f217e3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -480,
+                  "y": -32
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Left Wall",
+          "data": {
+            "id": "3e3dd35576f643f0b2732f0ff4b48403",
+            "name": "LeftWall3",
+            "templates": [
+              "51cb30644f4a401cb8eb81d728f217e3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -480,
+                  "y": 16
                 }
               }
             ]
@@ -150,8 +188,8 @@
         {
           "path": null,
           "data": {
-            "id": "c097359625d54051aeae0260c7caafc8",
-            "name": "LeftWall1",
+            "id": "dfc5ad417f4242d2a5b80d74860dc517",
+            "name": "Jump Pillar",
             "templates": [
               "51cb30644f4a401cb8eb81d728f217e3"
             ],
@@ -159,46 +197,8 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": -480,
+                  "x": -144,
                   "y": -80
-                }
-              }
-            ]
-          }
-        },
-        {
-          "path": null,
-          "data": {
-            "id": "5581fbc3f0654c80b8aeb963c044ae7f",
-            "name": "LeftWall2",
-            "templates": [
-              "51cb30644f4a401cb8eb81d728f217e3"
-            ],
-            "components": [
-              {
-                "id": "PositionComponent",
-                "data": {
-                  "x": -480,
-                  "y": -32
-                }
-              }
-            ]
-          }
-        },
-        {
-          "path": null,
-          "data": {
-            "id": "3e3dd35576f643f0b2732f0ff4b48403",
-            "name": "LeftWall3",
-            "templates": [
-              "51cb30644f4a401cb8eb81d728f217e3"
-            ],
-            "components": [
-              {
-                "id": "PositionComponent",
-                "data": {
-                  "x": -480,
-                  "y": 16
                 }
               }
             ]
@@ -532,7 +532,7 @@
                     },
                     "Sprite Count": {
                       "class": "com.badlogic.gdx.math.Vector2",
-                      "x": 4,
+                      "x": 2,
                       "y": 1
                     },
                     "Animation Looping": {
@@ -559,7 +559,7 @@
                     },
                     "Sprite Count": {
                       "class": "com.badlogic.gdx.math.Vector2",
-                      "x": 4,
+                      "x": 1,
                       "y": 1
                     },
                     "Animation Looping": {

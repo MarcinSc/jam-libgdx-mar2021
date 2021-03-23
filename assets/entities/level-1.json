@@ -23,8 +23,26 @@
         "templates/Pillar.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -144,
+        "x": -480,
         "y": -80
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Pillar.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -480,
+        "y": -32
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Pillar.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -480,
+        "y": 16
       }
     },
     {
@@ -96,26 +114,8 @@
         "templates/Pillar.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -480,
+        "x": -144,
         "y": -80
-      }
-    },
-    {
-      "tpl:extends": [
-        "templates/Pillar.json"
-      ],
-      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -480,
-        "y": -32
-      }
-    },
-    {
-      "tpl:extends": [
-        "templates/Pillar.json"
-      ],
-      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -480,
-        "y": 16
       }
     },
     {
