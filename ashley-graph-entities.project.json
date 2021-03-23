@@ -22,8 +22,8 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": -177,
-                  "y": 83
+                  "x": -103,
+                  "y": 79
                 }
               }
             ]
@@ -41,8 +41,8 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": 108,
-                  "y": 78
+                  "x": 183,
+                  "y": 82
                 }
               }
             ]
@@ -410,7 +410,7 @@
               "properties": {
                 "Parallax": {
                   "class": "java.lang.Float",
-                  "value": 0.7
+                  "value": 0.9
                 },
                 "Texture": {
                   "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",

@@ -5,8 +5,8 @@
         "templates/Cloud1.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -177,
-        "y": 83
+        "x": -103,
+        "y": 79
       }
     },
     {
@@ -14,8 +14,8 @@
         "templates/Cloud1.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": 108,
-        "y": 78
+        "x": 183,
+        "y": 82
       }
     },
     {
