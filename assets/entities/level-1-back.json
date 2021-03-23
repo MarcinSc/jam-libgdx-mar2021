@@ -3,7 +3,7 @@
     {
       "tpl:extends": [],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": 1,
+        "x": 0,
         "y": 0
       },
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {

@@ -14,9 +14,14 @@ import com.gempukku.jam.libgdx.march2021.component.InputControlledComponent;
 public class InputControlSystem extends EntitySystem {
     private ImmutableArray<Entity> inputControlledEntities;
     private Engine engine;
+    private boolean enabled = true;
 
     public InputControlSystem(int priority) {
         super(priority);
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -31,20 +36,22 @@ public class InputControlSystem extends EntitySystem {
         float time = engine.getSystem(TimeSystem.class).getTimeProvider().getTime();
         for (Entity playerControllerEntity : inputControlledEntities) {
             InputControlledComponent playerController = playerControllerEntity.getComponent(InputControlledComponent.class);
-            Queue<InputControlledComponent.InputEntry> inputs = playerController.getInputs();
-            for (ObjectMap.Entry<String, String> keyMapping : playerController.getTriggerKeyMapping()) {
-                String action = keyMapping.key;
-                String[] keys = keyMapping.value.split("\\|");
-                if (isAnyJustPressed(keys)) {
-                    inputs.addLast(new InputControlledComponent.InputEntry(time, action));
-                    if (inputs.size > 10)
-                        inputs.removeFirst();
+            if (enabled) {
+                Queue<InputControlledComponent.InputEntry> inputs = playerController.getInputs();
+                for (ObjectMap.Entry<String, String> keyMapping : playerController.getTriggerKeyMapping()) {
+                    String action = keyMapping.key;
+                    String[] keys = keyMapping.value.split("\\|");
+                    if (isAnyJustPressed(keys)) {
+                        inputs.addLast(new InputControlledComponent.InputEntry(time, action));
+                        if (inputs.size > 10)
+                            inputs.removeFirst();
+                    }
                 }
             }
             for (ObjectMap.Entry<String, String> stateKey : playerController.getStateKeys()) {
                 String state = stateKey.key;
                 String[] keys = stateKey.value.split("\\|");
-                playerController.setKeyState(state, isAnyPressed(keys));
+                playerController.setKeyState(state, enabled && isAnyPressed(keys));
             }
         }
     }

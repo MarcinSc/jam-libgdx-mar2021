@@ -365,6 +365,110 @@
               }
             ]
           }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "6becea5c7d2947228a6a147d34d59cae",
+            "name": "Tree hole",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 416,
+                  "y": 0
+                }
+              },
+              {
+                "id": "15143087959140598db5d3e4b9c95630",
+                "data": {
+                  "level": "entities/level-2.json"
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 64,
+                        "height": 240,
+                        "center": {
+                          "x": 64,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    },
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Activable"
+                      ],
+                      "mask": [
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 48,
+                        "height": 32,
+                        "center": {
+                          "x": 0,
+                          "y": -90
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 10,
+                  "width": 128,
+                  "height": 240,
+                  "tags": [
+                    "Animated"
+                  ],
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/environment/tree-hole.png"
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -381,7 +485,7 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": 1,
+                  "x": 0,
                   "y": 0
                 }
               },
@@ -504,6 +608,19 @@
         },
         {
           "name": "color",
+          "type": "Object",
+          "fieldTypeId": "String"
+        }
+      ]
+    },
+    {
+      "id": "15143087959140598db5d3e4b9c95630",
+      "name": "MoveToLevelActionComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.MoveToLevelActionComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "level",
           "type": "Object",
           "fieldTypeId": "String"
         }
@@ -900,6 +1017,30 @@
                     "center": {
                       "x": -20,
                       "y": 0
+                    },
+                    "angle": 0
+                  }
+                },
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": true,
+                  "sensorName": "activator",
+                  "sensorType": "activator",
+                  "category": [
+                    "Sensor"
+                  ],
+                  "mask": [
+                    "Activable"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 16,
+                    "height": 48,
+                    "center": {
+                      "x": 0,
+                      "y": -2
                     },
                     "angle": 0
                   }

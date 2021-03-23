@@ -234,6 +234,91 @@
         "x": -432,
         "y": -96
       }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 416,
+        "y": 0
+      },
+      "com.gempukku.jam.libgdx.march2021.component.MoveToLevelActionComponent": {
+        "level": "entities/level-2.json"
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 64,
+              "height": 240,
+              "center": {
+                "x": 64,
+                "y": 0
+              },
+              "angle": 0
+            }
+          },
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Activable"
+            ],
+            "mask": [
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 48,
+              "height": 32,
+              "center": {
+                "x": 0,
+                "y": -90
+              },
+              "angle": 0
+            }
+          }
+        ]
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+        "layer": 10,
+        "width": 128,
+        "height": 240,
+        "tags": [
+          "Animated"
+        ],
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/environment/tree-hole.png"
+          }
+        }
+      }
     }
   ]
 }
