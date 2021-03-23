@@ -93,6 +93,33 @@
           }
         }
       },
+      "Attack": {
+        "width": 64,
+        "height": 64,
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/player/Player-Attack.png"
+          },
+          "Animation Start": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+          },
+          "Sprite Count": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 3,
+            "y": 1
+          },
+          "Animation Looping": {
+            "class": "java.lang.Float",
+            "value": 0
+          },
+          "Animation Speed": {
+            "class": "java.lang.Float",
+            "value": 30
+          }
+        }
+      },
       "Idle": {
         "width": 64,
         "height": 64,
@@ -170,7 +197,7 @@
         ],
         "shape": {
           "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
-          "width": 16,
+          "width": 12,
           "height": 4,
           "center": {
             "x": 0,
@@ -194,7 +221,7 @@
         ],
         "shape": {
           "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
-          "width": 20,
+          "width": 24,
           "height": 30,
           "center": {
             "x": 20,
@@ -218,7 +245,7 @@
         ],
         "shape": {
           "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
-          "width": 20,
+          "width": 24,
           "height": 30,
           "center": {
             "x": -20,
@@ -230,7 +257,7 @@
     ]
   },
   "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
-    "layer": 10,
+    "layer": 9,
     "width": 64,
     "height": 64,
     "tags": [

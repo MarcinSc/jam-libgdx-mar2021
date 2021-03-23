@@ -86,7 +86,7 @@
       "Attack": {
         "Walk/Idle": {
           "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.TimeCondition",
-          "time": 0.3
+          "time": 0.1
         }
       }
     }

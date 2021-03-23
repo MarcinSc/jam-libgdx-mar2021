@@ -90,7 +90,7 @@
         ]
       },
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
-        "layer": 8,
+        "layer": 10,
         "width": 64,
         "height": 192,
         "tags": [
