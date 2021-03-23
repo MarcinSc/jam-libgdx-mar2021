@@ -1,0 +1,22 @@
+{
+  "tpl:extends": [],
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+    "layer": 99,
+    "width": 96,
+    "height": 48,
+    "tags": [
+      "Parallax"
+    ],
+    "properties": {
+      "Parallax": {
+        "class": "java.lang.Float",
+        "value": 0.9
+      },
+      "Texture": {
+        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+        "atlas": "",
+        "texture": "images/environment/cloud1.png"
+      }
+    }
+  }
+}
