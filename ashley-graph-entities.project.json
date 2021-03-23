@@ -177,6 +177,13 @@
                     }
                   }
                 }
+              },
+              {
+                "id": "328dd33f79a14f4e8ca6e44d343738fe",
+                "data": {
+                  "maxHealth": 3,
+                  "health": 3
+                }
               }
             ]
           }
@@ -408,6 +415,24 @@
       "fields": [
         {
           "name": "damage",
+          "type": "Object",
+          "fieldTypeId": "int"
+        }
+      ]
+    },
+    {
+      "id": "328dd33f79a14f4e8ca6e44d343738fe",
+      "name": "HealthComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.HealthComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "maxHealth",
+          "type": "Object",
+          "fieldTypeId": "int"
+        },
+        {
+          "name": "health",
           "type": "Object",
           "fieldTypeId": "int"
         }
@@ -773,6 +798,54 @@
                     "center": {
                       "x": 0,
                       "y": -26
+                    },
+                    "angle": 0
+                  }
+                },
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": true,
+                  "sensorName": "parasolAttackRight",
+                  "sensorType": "attackableList",
+                  "category": [
+                    "Sensor"
+                  ],
+                  "mask": [
+                    "Attackable"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 20,
+                    "height": 30,
+                    "center": {
+                      "x": 20,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                },
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": true,
+                  "sensorName": "parasolAttackLeft",
+                  "sensorType": "attackableList",
+                  "category": [
+                    "Sensor"
+                  ],
+                  "mask": [
+                    "Attackable"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 20,
+                    "height": 30,
+                    "center": {
+                      "x": -20,
+                      "y": 0
                     },
                     "angle": 0
                   }

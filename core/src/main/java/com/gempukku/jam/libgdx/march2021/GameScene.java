@@ -25,6 +25,7 @@ import com.gempukku.jam.libgdx.march2021.system.LevelSetupSystem;
 import com.gempukku.jam.libgdx.march2021.system.SpawnSystem;
 import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
 import com.gempukku.jam.libgdx.march2021.system.sensor.ContactSensorContactListener;
+import com.gempukku.jam.libgdx.march2021.system.sensor.EntitySensorContactListener;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.Box2DSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.EntityPositionUpdateListener;
@@ -176,6 +177,7 @@ public class GameScene implements Scene {
 
         Box2DSystem box2DSystem = new Box2DSystem(10, new Vector2(0, -15f), false, 100);
         box2DSystem.addSensorContactListener("groundContact", new ContactSensorContactListener(box2DSystem.getBitForCategory("Ground")));
+        box2DSystem.addSensorContactListener("attackableList", new EntitySensorContactListener(box2DSystem.getBitForCategory("Attackable")));
         engine.addSystem(box2DSystem);
 
         RenderingSystem renderingSystem = new RenderingSystem(20, timeSystem.getTimeProvider(), pipelineRenderer, textureLoader);

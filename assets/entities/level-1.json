@@ -103,6 +103,10 @@
             "texture": "images/environment/hedge.png"
           }
         }
+      },
+      "com.gempukku.jam.libgdx.march2021.component.HealthComponent": {
+        "maxHealth": 3,
+        "health": 3
       }
     },
     {
