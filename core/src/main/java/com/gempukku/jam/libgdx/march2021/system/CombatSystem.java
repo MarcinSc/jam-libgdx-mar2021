@@ -5,10 +5,12 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.gempukku.jam.libgdx.march2021.component.AttackerComponent;
 import com.gempukku.jam.libgdx.march2021.component.HealthComponent;
+import com.gempukku.jam.libgdx.march2021.component.UpdateSpriteOnDamageComponent;
 import com.gempukku.jam.libgdx.march2021.system.sensor.EntitySensorData;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyDataComponent;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FaceDirection;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 
 public class CombatSystem extends EntitySystem {
     private Engine engine;
@@ -36,7 +38,14 @@ public class CombatSystem extends EntitySystem {
                 entityDies(entity);
             } else {
                 healthComponent.setHealth(health - damage);
+                entityDamaged(entity);
             }
+        }
+    }
+
+    private void entityDamaged(Entity entity) {
+        if (entity.getComponent(UpdateSpriteOnDamageComponent.class) != null) {
+            engine.getSystem(RenderingSystem.class).updateSpriteProperties(entity);
         }
     }
 

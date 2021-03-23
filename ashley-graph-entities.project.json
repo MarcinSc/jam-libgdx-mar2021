@@ -113,6 +113,10 @@
             "templates": [],
             "components": [
               {
+                "id": "10be656ca19a4ed7b58d9af4fffe2833",
+                "data": {}
+              },
+              {
                 "id": "PositionComponent",
                 "data": {
                   "x": 80,
@@ -174,6 +178,22 @@
                       "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
                       "atlas": "",
                       "texture": "images/environment/hedge.png"
+                    },
+                    "Animation Start": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+                    },
+                    "Sprite Count": {
+                      "class": "com.badlogic.gdx.math.Vector2",
+                      "x": 3,
+                      "y": 1
+                    },
+                    "Animation Looping": {
+                      "class": "java.lang.Float",
+                      "value": 0
+                    },
+                    "Animation Speed": {
+                      "class": "java.lang.Float",
+                      "value": 10
                     }
                   }
                 }
@@ -500,6 +520,13 @@
       "id": "260ef9f516514a7fa776f5386a59fedd",
       "name": "PlayerSpawnComponent",
       "className": "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent",
+      "component": true,
+      "fields": []
+    },
+    {
+      "id": "10be656ca19a4ed7b58d9af4fffe2833",
+      "name": "UpdateSpriteOnDamageComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.UpdateSpriteOnDamageComponent",
       "component": true,
       "fields": []
     }
