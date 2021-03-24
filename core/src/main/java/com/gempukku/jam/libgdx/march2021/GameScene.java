@@ -33,11 +33,15 @@ import com.gempukku.jam.libgdx.march2021.system.CameraSystem;
 import com.gempukku.jam.libgdx.march2021.system.CombatSystem;
 import com.gempukku.jam.libgdx.march2021.system.DirectTextureLoader;
 import com.gempukku.jam.libgdx.march2021.system.FiniteStateSystem;
+import com.gempukku.jam.libgdx.march2021.system.IdSystem;
 import com.gempukku.jam.libgdx.march2021.system.InputControlSystem;
 import com.gempukku.jam.libgdx.march2021.system.LevelSetupSystem;
 import com.gempukku.jam.libgdx.march2021.system.SpawnSystem;
 import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
+import com.gempukku.jam.libgdx.march2021.system.activate.AnimateMoveAndDestroyActivateListener;
 import com.gempukku.jam.libgdx.march2021.system.activate.MoveToLevelActivateListener;
+import com.gempukku.jam.libgdx.march2021.system.level.IntoRabbitHoleLevelLogic;
+import com.gempukku.jam.libgdx.march2021.system.level.LevelContainer;
 import com.gempukku.jam.libgdx.march2021.system.sensor.ContactSensorContactListener;
 import com.gempukku.jam.libgdx.march2021.system.sensor.EntitySensorContactListener;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent;
@@ -75,6 +79,7 @@ public class GameScene implements Scene {
 
     private ProfilerInfoProvider profilerInfoProvider;
     private PerformanceProfiler performanceProfiler;
+    private LevelContainer levelContainer;
     private Table centerTable;
     private Table bottomTable;
     private Label levelNumber;
@@ -88,6 +93,9 @@ public class GameScene implements Scene {
     @Override
     public void initializeScene() {
         //Gdx.app.setLogLevel(Gdx.app.LOG_DEBUG);
+
+        levelContainer = new LevelContainer();
+        levelContainer.addLevelLogic(1, new IntoRabbitHoleLevelLogic());
 
         performanceProfiler = new PerformanceProfiler(profilerInfoProvider);
         resources.add(performanceProfiler);
@@ -136,32 +144,35 @@ public class GameScene implements Scene {
     }
 
     private void loadLevel(String level) {
-        createEntities(level);
-        engine.getSystem(InputControlSystem.class).setEnabled(false);
-        for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
-            LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
-            showLevelScreen(levelComponent.getLevelNumber(), levelComponent.getTitle(), levelComponent.getQuote());
-        }
-        GraphScreenShaders screenShaders = pipelineRenderer.getPluginData(GraphScreenShaders.class);
-        screenShaders.setProperty("Blackout", "Alpha", 1f);
-
-        spaceTriggeredAction = new Action() {
-            @Override
-            public boolean act() {
-                hideLevelScreen();
-                float fadeInLength = 1f;
-                TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
-                actionQueue.add(new DelayedAction(timeProvider, fadeInLength,
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                engine.getSystem(InputControlSystem.class).setEnabled(true);
-                            }
-                        }));
-                actionQueue.add(new FadeInAction(timeProvider, screenShaders, "Blackout", "Alpha", fadeInLength));
-                return true;
+        if (createEntities(level)) {
+            engine.getSystem(InputControlSystem.class).setEnabled(false);
+            for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
+                LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
+                int levelNumber = levelComponent.getLevelNumber();
+                showLevelScreen(levelNumber, levelComponent.getTitle(), levelComponent.getQuote());
+                levelContainer.getLevelLogic(levelNumber).loadLogic(engine);
             }
-        };
+            GraphScreenShaders screenShaders = pipelineRenderer.getPluginData(GraphScreenShaders.class);
+            screenShaders.setProperty("Blackout", "Alpha", 1f);
+
+            spaceTriggeredAction = new Action() {
+                @Override
+                public boolean act() {
+                    hideLevelScreen();
+                    float fadeInLength = 1f;
+                    TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
+                    actionQueue.add(new DelayedAction(timeProvider, fadeInLength,
+                            new Runnable() {
+                                @Override
+                                public void run() {
+                                    engine.getSystem(InputControlSystem.class).setEnabled(true);
+                                }
+                            }));
+                    actionQueue.add(new FadeInAction(timeProvider, screenShaders, "Blackout", "Alpha", fadeInLength));
+                    return true;
+                }
+            };
+        }
     }
 
     private void showLevelScreen(int number, String title, String quote) {
@@ -179,6 +190,13 @@ public class GameScene implements Scene {
     }
 
     private void unloadLevelAndGoTo(String level) {
+        for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
+            LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
+            int levelNumber = levelComponent.getLevelNumber();
+            showLevelScreen(levelNumber, levelComponent.getTitle(), levelComponent.getQuote());
+            levelContainer.getLevelLogic(levelNumber).unloadLogic(engine);
+        }
+
         GraphScreenShaders screenShaders = pipelineRenderer.getPluginData(GraphScreenShaders.class);
         float fadeOutLength = 1f;
         TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
@@ -251,7 +269,7 @@ public class GameScene implements Scene {
         resources.clear();
     }
 
-    private void createEntities(String level) {
+    private boolean createEntities(String level) {
         Json json = new AshleyEngineJson(engine);
         ClasspathFileHandleResolver fileHandleResolver = new ClasspathFileHandleResolver();
         if (fileHandleResolver.resolve(level).exists()) {
@@ -261,8 +279,10 @@ public class GameScene implements Scene {
             for (JsonValue entity : levelJson.get("entities")) {
                 createEntity(AshleyTemplateEntityLoader.convertToAshley(entity, json));
             }
+            return true;
         } else {
             Gdx.app.exit();
+            return false;
         }
     }
 
@@ -314,9 +334,14 @@ public class GameScene implements Scene {
                                 unloadLevelAndGoTo(s);
                             }
                         }));
+        activateSystem.addActivateListener(
+                new AnimateMoveAndDestroyActivateListener(engine, actionQueue));
         engine.addSystem(activateSystem);
 
-        FiniteStateSystem finiteStateSystem = new FiniteStateSystem(6);
+        IdSystem idSystem = new IdSystem(6);
+        engine.addSystem(idSystem);
+
+        FiniteStateSystem finiteStateSystem = new FiniteStateSystem(7);
         engine.addSystem(finiteStateSystem);
 
         Box2DSystem box2DSystem = new Box2DSystem(10, new Vector2(0, -15f), false, 100);

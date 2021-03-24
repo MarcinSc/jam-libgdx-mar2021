@@ -231,6 +231,69 @@
       }
     },
     {
+      "tpl:extends": [
+        "templates/RunningRabbit.json"
+      ],
+      "com.gempukku.jam.libgdx.march2021.component.IdComponent": {
+        "id": "running-rabbit-1"
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -192,
+        "y": -96
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -360,
+        "y": 0
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Activable"
+            ],
+            "mask": [
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 32,
+              "height": 240,
+              "center": {
+                "x": 0,
+                "y": 0
+              },
+              "angle": 0
+            }
+          }
+        ]
+      },
+      "com.gempukku.jam.libgdx.march2021.component.AnimateMoveAndDestroyComponent": {
+        "id": "running-rabbit-1",
+        "spriteState": "Walk",
+        "distance": {
+          "x": 100.0,
+          "y": 0.0
+        },
+        "time": 0.4000000059604645
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent": {},
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {

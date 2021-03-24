@@ -14,7 +14,7 @@
           "path": "Clouds",
           "data": {
             "id": "965bf4e1f7484c6f8d9093345f026156",
-            "name": "Cloud1",
+            "name": "Cloud 1",
             "templates": [
               "0494ff7fef3345108ab3f5ad5ac1fdcc"
             ],
@@ -33,7 +33,7 @@
           "path": "Clouds",
           "data": {
             "id": "52cd3fb862f843e5a84552b6479382a0",
-            "name": "Cloud2",
+            "name": "Cloud 2",
             "templates": [
               "0494ff7fef3345108ab3f5ad5ac1fdcc"
             ],
@@ -351,6 +351,98 @@
         {
           "path": null,
           "data": {
+            "id": "0ddbb2d3addd442097d9683eba5879c5",
+            "name": "Rabbit 1",
+            "templates": [
+              "d67cfcdf0d784a859c58997218b5f99d"
+            ],
+            "components": [
+              {
+                "id": "a73093ec23a94c0f8bf2348c81dc0524",
+                "data": {
+                  "id": "running-rabbit-1"
+                }
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -192,
+                  "y": -96
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "3c661346224c4b88aa63a8f8f3129b88",
+            "name": "Rabbit 1 Trigger",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -360,
+                  "y": 0
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Activable"
+                      ],
+                      "mask": [
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 32,
+                        "height": 240,
+                        "center": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "4fda2002eaba4a27a3437c22f37bfb17",
+                "data": {
+                  "id": "running-rabbit-1",
+                  "spriteState": "Walk",
+                  "distance": {
+                    "x": 100.0,
+                    "y": 0.0
+                  },
+                  "time": 0.4000000059604645
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
             "id": "dd8f55cf4e484082b0aa9559e605d9f7",
             "name": "Spawn",
             "templates": [],
@@ -535,6 +627,34 @@
       ]
     },
     {
+      "id": "4fda2002eaba4a27a3437c22f37bfb17",
+      "name": "AnimateMoveAndDestroyComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.AnimateMoveAndDestroyComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "id",
+          "type": "Object",
+          "fieldTypeId": "String"
+        },
+        {
+          "name": "spriteState",
+          "type": "Object",
+          "fieldTypeId": "String"
+        },
+        {
+          "name": "distance",
+          "type": "Object",
+          "fieldTypeId": "Vector2"
+        },
+        {
+          "name": "time",
+          "type": "Object",
+          "fieldTypeId": "float"
+        }
+      ]
+    },
+    {
       "id": "0a136a1508e540f7880e00ea11ca473e",
       "name": "AttackerComponent",
       "className": "com.gempukku.jam.libgdx.march2021.component.AttackerComponent",
@@ -562,6 +682,19 @@
           "name": "health",
           "type": "Object",
           "fieldTypeId": "int"
+        }
+      ]
+    },
+    {
+      "id": "a73093ec23a94c0f8bf2348c81dc0524",
+      "name": "IdComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.IdComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "id",
+          "type": "Object",
+          "fieldTypeId": "String"
         }
       ]
     },
@@ -1127,6 +1260,66 @@
             "id": "0a136a1508e540f7880e00ea11ca473e",
             "data": {
               "damage": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "d67cfcdf0d784a859c58997218b5f99d",
+        "name": "RunningRabbit",
+        "templates": [],
+        "components": [
+          {
+            "id": "SpriteStateComponent",
+            "data": {
+              "state": null,
+              "states": {
+                "Walk": {
+                  "width": 32,
+                  "height": 32,
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/character/rabbit-walk.png"
+                    },
+                    "Sprite Count": {
+                      "class": "com.badlogic.gdx.math.Vector2",
+                      "x": 2,
+                      "y": 1
+                    },
+                    "Animation Speed": {
+                      "class": "java.lang.Float",
+                      "value": 5
+                    },
+                    "Animation Looping": {
+                      "class": "java.lang.Float",
+                      "value": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 9,
+              "width": 32,
+              "height": 32,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/character/rabbit-idle.png"
+                }
+              }
             }
           }
         ]
