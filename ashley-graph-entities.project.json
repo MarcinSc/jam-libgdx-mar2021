@@ -857,11 +857,6 @@
           "name": "jumpSpeed",
           "type": "Object",
           "fieldTypeId": "float"
-        },
-        {
-          "name": "climbSpeed",
-          "type": "Object",
-          "fieldTypeId": "float"
         }
       ]
     },
@@ -932,6 +927,19 @@
       "fields": [
         {
           "name": "id",
+          "type": "Object",
+          "fieldTypeId": "String"
+        }
+      ]
+    },
+    {
+      "id": "159e555e626d437fb1013a3ad63d4296",
+      "name": "ImportTemplateComponent",
+      "className": "com.gempukku.jam.libgdx.march2021.component.ImportTemplateComponent",
+      "component": true,
+      "fields": [
+        {
+          "name": "path",
           "type": "Object",
           "fieldTypeId": "String"
         }
@@ -1127,6 +1135,19 @@
         "templates": [],
         "components": [
           {
+            "id": "98d87d73647a439aad87b22c70a302e0",
+            "data": {
+              "walkSpeed": 1.0,
+              "jumpSpeed": 6.0
+            }
+          },
+          {
+            "id": "159e555e626d437fb1013a3ad63d4296",
+            "data": {
+              "path": "handWrittenEntities/enemy/patrolStateMachine.json"
+            }
+          },
+          {
             "id": "Box2DBodyComponent",
             "data": {
               "bodyType": "DynamicBody",
@@ -1258,6 +1279,12 @@
             }
           },
           {
+            "id": "FacingComponent",
+            "data": {
+              "faceDirection": "Right"
+            }
+          },
+          {
             "id": "328dd33f79a14f4e8ca6e44d343738fe",
             "data": {
               "maxHealth": 1,
@@ -1346,8 +1373,7 @@
             "id": "98d87d73647a439aad87b22c70a302e0",
             "data": {
               "walkSpeed": 2.0,
-              "jumpSpeed": 6.0,
-              "climbSpeed": 1.5
+              "jumpSpeed": 6.0
             }
           },
           {

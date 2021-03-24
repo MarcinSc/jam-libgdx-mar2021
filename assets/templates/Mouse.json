@@ -1,5 +1,12 @@
 {
   "tpl:extends": [],
+  "com.gempukku.jam.libgdx.march2021.component.AgilityComponent": {
+    "walkSpeed": 1.0,
+    "jumpSpeed": 6.0
+  },
+  "com.gempukku.jam.libgdx.march2021.component.ImportTemplateComponent": {
+    "path": "handWrittenEntities/enemy/patrolStateMachine.json"
+  },
   "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
     "bodyType": "DynamicBody",
     "fixedRotation": false,
@@ -124,6 +131,9 @@
         "texture": "images/character/mouse.png"
       }
     }
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
+    "faceDirection": "Right"
   },
   "com.gempukku.jam.libgdx.march2021.component.HealthComponent": {
     "maxHealth": 1,

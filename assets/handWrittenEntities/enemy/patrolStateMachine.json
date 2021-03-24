@@ -1,0 +1,74 @@
+{
+  "com.gempukku.jam.libgdx.march2021.component.FiniteStateComponent": {
+    "initialState": "Start",
+    "machineStates": {
+      "Start": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.NoOpState"
+      },
+      "Walk": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.ai.AIWalkState"
+      },
+      "TurnAround": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.ai.AITurnAroundState"
+      },
+      "Airborne": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.NoOpState"
+      }
+    },
+    "transitions": {
+      "Start": {
+        "Walk": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.TrueCondition"
+        }
+      },
+      "Walk": {
+        "Airborne": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasNoContactCondition",
+          "sensor": "foot"
+        },
+        "TurnAround": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.OrCondition",
+          "conditions": [
+            {
+              "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.AndCondition",
+              "conditions": [
+                {
+                  "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasNoContactCondition",
+                  "sensor": "rightLookAhead"
+                },
+                {
+                  "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasFacingCondition",
+                  "facing": "Right"
+                }
+              ]
+            },
+            {
+              "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.AndCondition",
+              "conditions": [
+                {
+                  "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasNoContactCondition",
+                  "sensor": "leftLookAhead"
+                },
+                {
+                  "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasFacingCondition",
+                  "facing": "Left"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "TurnAround": {
+        "Walk": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.TrueCondition"
+        }
+      },
+      "Airborne": {
+        "Walk": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasContactCondition",
+          "sensor": "foot"
+        }
+      }
+    }
+  }
+}

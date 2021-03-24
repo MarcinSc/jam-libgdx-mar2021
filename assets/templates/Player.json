@@ -2,8 +2,7 @@
   "tpl:extends": [],
   "com.gempukku.jam.libgdx.march2021.component.AgilityComponent": {
     "walkSpeed": 2.0,
-    "jumpSpeed": 6.0,
-    "climbSpeed": 1.5
+    "jumpSpeed": 6.0
   },
   "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
     "x": 0,
