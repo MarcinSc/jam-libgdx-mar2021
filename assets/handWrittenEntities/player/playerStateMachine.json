@@ -18,6 +18,10 @@
         "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.player.AttackState",
         "attackAfter": 0.05,
         "attackSensor": "parasolAttack"
+      },
+      "Dead": {
+        "class": "com.gempukku.jam.libgdx.march2021.system.machine.state.player.DeadState",
+        "state": "Dead"
       }
     },
     "transitions": {
@@ -27,6 +31,9 @@
         }
       },
       "Walk/Idle": {
+        "Dead": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.player.IsDeadCondition"
+        },
         "Jump": {
           "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.WhenKeyPressedWithinCondition",
           "time": 0.1,
@@ -62,6 +69,9 @@
         }
       },
       "Airborne": {
+        "Dead": {
+          "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.player.IsDeadCondition"
+        },
         "Walk/Idle": {
           "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.HasContactCondition",
           "sensor": "foot"
@@ -88,6 +98,8 @@
           "class": "com.gempukku.jam.libgdx.march2021.system.machine.condition.TimeCondition",
           "time": 0.1
         }
+      },
+      "Dead": {
       }
     }
   }

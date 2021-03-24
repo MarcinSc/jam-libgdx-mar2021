@@ -90,6 +90,8 @@ public class GameScene implements Scene {
     private Label levelTitle;
     private Label levelQuote;
 
+    private String currentLevel;
+
     public GameScene(ProfilerInfoProvider profilerInfoProvider) {
         this.profilerInfoProvider = profilerInfoProvider;
     }
@@ -119,7 +121,7 @@ public class GameScene implements Scene {
         engine = setupEntitySystem();
 
 //        loadLevel("entities/level-1.json");
-        loadLevel("entities/level-2.json");
+        loadLevel("entities/level-2.json", true);
     }
 
     private Stage createStage() {
@@ -149,35 +151,51 @@ public class GameScene implements Scene {
         return stage;
     }
 
-    private void loadLevel(String level) {
+    private void loadLevel(String level, boolean showLevelScreen) {
+        currentLevel = level;
         if (createEntities(level)) {
             engine.getSystem(InputControlSystem.class).setEnabled(false);
-            for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
-                LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
-                int levelNumber = levelComponent.getLevelNumber();
-                showLevelScreen(levelNumber, levelComponent.getTitle(), levelComponent.getQuote());
-                levelContainer.getLevelLogic(levelNumber).loadLogic(engine);
-            }
+
             GraphScreenShaders screenShaders = pipelineRenderer.getPluginData(GraphScreenShaders.class);
             screenShaders.setProperty("Blackout", "Alpha", 1f);
 
-            spaceTriggeredAction = new Action() {
-                @Override
-                public boolean act() {
-                    hideLevelScreen();
-                    float fadeInLength = 1f;
-                    TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
-                    actionQueue.add(new DelayedAction(timeProvider, fadeInLength,
-                            new Runnable() {
-                                @Override
-                                public void run() {
-                                    engine.getSystem(InputControlSystem.class).setEnabled(true);
-                                }
-                            }));
-                    actionQueue.add(new FadeInAction(timeProvider, screenShaders, "Blackout", "Alpha", fadeInLength));
-                    return true;
+            if (showLevelScreen) {
+                for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
+                    LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
+                    int levelNumber = levelComponent.getLevelNumber();
+                    showLevelScreen(levelNumber, levelComponent.getTitle(), levelComponent.getQuote());
+                    levelContainer.getLevelLogic(levelNumber).loadLogic(engine);
                 }
-            };
+
+                spaceTriggeredAction = new Action() {
+                    @Override
+                    public boolean act() {
+                        hideLevelScreen();
+                        float fadeInLength = 1f;
+                        TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
+                        actionQueue.add(new DelayedAction(timeProvider, fadeInLength,
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        engine.getSystem(InputControlSystem.class).setEnabled(true);
+                                    }
+                                }));
+                        actionQueue.add(new FadeInAction(timeProvider, screenShaders, "Blackout", "Alpha", fadeInLength));
+                        return true;
+                    }
+                };
+            } else {
+                float fadeInLength = 1f;
+                TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
+                actionQueue.add(new DelayedAction(timeProvider, fadeInLength,
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                engine.getSystem(InputControlSystem.class).setEnabled(true);
+                            }
+                        }));
+                actionQueue.add(new FadeInAction(timeProvider, screenShaders, "Blackout", "Alpha", fadeInLength));
+            }
         }
     }
 
@@ -196,6 +214,17 @@ public class GameScene implements Scene {
     }
 
     private void unloadLevelAndGoTo(String level) {
+        unloadLevel(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        loadLevel(level, true);
+                    }
+                }
+        );
+    }
+
+    private void unloadLevel(Runnable followup) {
         for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
             LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
             int levelNumber = levelComponent.getLevelNumber();
@@ -212,7 +241,7 @@ public class GameScene implements Scene {
                     @Override
                     public void run() {
                         engine.removeAllEntities();
-                        loadLevel(level);
+                        followup.run();
                     }
                 }));
     }
@@ -342,7 +371,13 @@ public class GameScene implements Scene {
         LevelSetupSystem levelSetupSystem = new LevelSetupSystem(3, pipelineRenderer);
         engine.addSystem(levelSetupSystem);
 
-        CombatSystem combatSystem = new CombatSystem(4);
+        CombatSystem combatSystem = new CombatSystem(4,
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        playerDied();
+                    }
+                });
         engine.addSystem(combatSystem);
 
         ActivateSystem activateSystem = new ActivateSystem(5);
@@ -368,6 +403,7 @@ public class GameScene implements Scene {
         box2DSystem.addSensorContactListener("groundContact", new ContactSensorContactListener(box2DSystem.getBitForCategory("Ground")));
         box2DSystem.addSensorContactListener("attackableList", new EntitySensorContactListener(box2DSystem.getBitForCategory("Attackable")));
         box2DSystem.addSensorContactListener("activator", new EntitySensorContactListener(box2DSystem.getBitForCategory("Activable")));
+        box2DSystem.addSensorContactListener("vulnerable", new ContactSensorContactListener(box2DSystem.getBitForCategory("Harmful")));
         engine.addSystem(box2DSystem);
 
         RenderingSystem renderingSystem = new RenderingSystem(20, timeSystem.getTimeProvider(), pipelineRenderer, textureLoader);
@@ -387,6 +423,16 @@ public class GameScene implements Scene {
         engine.addSystem(cameraSystem);
 
         return engine;
+    }
+
+    private void playerDied() {
+        unloadLevel(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        loadLevel(currentLevel, false);
+                    }
+                });
     }
 
     private static PipelineRenderer loadPipeline(TimeProvider timeProvider, Camera camera, Stage stage) {

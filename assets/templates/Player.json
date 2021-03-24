@@ -11,6 +11,33 @@
   "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteStateComponent": {
     "state": "Idle",
     "states": {
+      "Dead": {
+        "width": 64,
+        "height": 64,
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/player/Player-Death.png"
+          },
+          "Animation Start": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.CurrentTimeValue"
+          },
+          "Sprite Count": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 3,
+            "y": 1
+          },
+          "Animation Looping": {
+            "class": "java.lang.Float",
+            "value": 0
+          },
+          "Animation Speed": {
+            "class": "java.lang.Float",
+            "value": 5
+          }
+        }
+      },
       "Jump": {
         "width": 64,
         "height": 64,
@@ -265,6 +292,30 @@
         ],
         "mask": [
           "Activable"
+        ],
+        "shape": {
+          "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+          "width": 16,
+          "height": 48,
+          "center": {
+            "x": 0,
+            "y": -2
+          },
+          "angle": 0
+        }
+      },
+      {
+        "friction": 0.2,
+        "restitution": 0,
+        "density": 0,
+        "sensor": true,
+        "sensorName": "body",
+        "sensorType": "vulnerable",
+        "category": [
+          "Sensor"
+        ],
+        "mask": [
+          "Harmful"
         ],
         "shape": {
           "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
