@@ -1,0 +1,35 @@
+{
+  "entities": [
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.LevelComponent": {
+        "bounds": {
+          "x": -160.0,
+          "y": -480.0,
+          "width": 320.0,
+          "height": 960.0
+        },
+        "snapWindow": {
+          "x": 0.30000001192092896,
+          "y": 0.5,
+          "width": 0.20000000298023224,
+          "height": 0.20000000298023224
+        },
+        "snapSpeed": {
+          "x": 0.20000000298023224,
+          "y": 0.20000000298023224
+        },
+        "lockWindow": {
+          "x": 0.20000000298023224,
+          "y": 0.30000001192092896,
+          "width": 0.4000000059604645,
+          "height": 0.6000000238418579
+        },
+        "color": "000000",
+        "title": "The Great Fall",
+        "quote": "Down, down, down. Would the fall never come to an end!",
+        "levelNumber": 2
+      }
+    }
+  ]
+}
