@@ -118,7 +118,8 @@ public class GameScene implements Scene {
 
         engine = setupEntitySystem();
 
-        loadLevel("entities/level-1.json");
+//        loadLevel("entities/level-1.json");
+        loadLevel("entities/level-2.json");
     }
 
     private Stage createStage() {

@@ -1,6 +1,42 @@
 {
   "entities": [
     {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 0,
+        "y": 416
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -64,
+        "y": 336
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 96,
+        "y": 352
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 16,
+        "y": 256
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.jam.libgdx.march2021.component.LevelComponent": {
         "bounds": {
@@ -25,10 +61,18 @@
           "width": 0.4000000059604645,
           "height": 0.6000000238418579
         },
-        "color": "000000",
+        "color": "3d0604",
         "title": "The Great Fall",
-        "quote": "Down, down, down. Would the fall never come to an end!",
+        "quote": "\"Down, down, down. Would the fall never come to an end!\"",
         "levelNumber": 2
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent": {},
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 0,
+        "y": 432
       }
     }
   ]

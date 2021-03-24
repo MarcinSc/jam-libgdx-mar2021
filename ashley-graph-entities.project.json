@@ -342,7 +342,7 @@
                   },
                   "color": "89dceb",
                   "title": "Down the Rabbit Hole",
-                  "quote": "Who in the world am I? Ah, that's the great puzzle.",
+                  "quote": "\"Who in the world am I? Ah, that's the great puzzle.\"",
                   "levelNumber": 1
                 }
               }
@@ -609,7 +609,7 @@
               {
                 "id": "SpriteComponent",
                 "data": {
-                  "layer": 100,
+                  "layer": 99,
                   "width": 960,
                   "height": 240,
                   "tags": [
@@ -627,6 +627,82 @@
       "name": "level-2",
       "enabled": true,
       "entities": [
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "e9b1783f8da548479b11c4e647444e23",
+            "name": "Platform 1",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": 416
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "7e5ec0a95ce04a149c6ec4f70fd1391f",
+            "name": "Platform 2",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -64,
+                  "y": 336
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "2f2e106fd55a4417a553ae93e58422f7",
+            "name": "Platform 3",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 96,
+                  "y": 352
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "10c3e7fc97834919871cd86ca71327be",
+            "name": "Platform 4",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 16,
+                  "y": 256
+                }
+              }
+            ]
+          }
+        },
         {
           "path": null,
           "data": {
@@ -659,10 +735,31 @@
                     "width": 0.4000000059604645,
                     "height": 0.6000000238418579
                   },
-                  "color": "000000",
+                  "color": "3d0604",
                   "title": "The Great Fall",
-                  "quote": "Down, down, down. Would the fall never come to an end!",
+                  "quote": "\"Down, down, down. Would the fall never come to an end!\"",
                   "levelNumber": 2
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "a1e58a4a6d6248e4818a2269c14eb69c",
+            "name": "Spawn",
+            "templates": [],
+            "components": [
+              {
+                "id": "260ef9f516514a7fa776f5386a59fedd",
+                "data": {}
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": 432
                 }
               }
             ]
@@ -691,7 +788,7 @@
               {
                 "id": "SpriteComponent",
                 "data": {
-                  "layer": 0,
+                  "layer": 99,
                   "width": 320,
                   "height": 960,
                   "tags": [
@@ -1470,6 +1567,142 @@
                   "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
                   "atlas": "",
                   "texture": "images/character/rabbit-idle.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "01ce35d40d094ee78401b27cda7f19c1",
+        "name": "UnderPlatform1",
+        "templates": [],
+        "components": [
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "StaticBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Environment",
+                    "Ground"
+                  ],
+                  "mask": [
+                    "Character",
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 62,
+                    "height": 8,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 10,
+              "width": 64,
+              "height": 16,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/environment/underground-platform.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "d4d7327d4bee4675b118940b90de2de2",
+        "name": "UnderPlatform2",
+        "templates": [],
+        "components": [
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "StaticBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Environment",
+                    "Ground"
+                  ],
+                  "mask": [
+                    "Character",
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 94,
+                    "height": 8,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 10,
+              "width": 96,
+              "height": 16,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/environment/underground-platform2.png"
                 }
               }
             }
