@@ -1,0 +1,47 @@
+{
+  "tpl:extends": [],
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteStateComponent": {
+    "state": null,
+    "states": {
+      "Walk": {
+        "width": 32,
+        "height": 32,
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/character/rabbit-walk.png"
+          },
+          "Sprite Count": {
+            "class": "com.badlogic.gdx.math.Vector2",
+            "x": 2,
+            "y": 1
+          },
+          "Animation Speed": {
+            "class": "java.lang.Float",
+            "value": 5
+          },
+          "Animation Looping": {
+            "class": "java.lang.Float",
+            "value": 1
+          }
+        }
+      }
+    }
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+    "layer": 9,
+    "width": 32,
+    "height": 32,
+    "tags": [
+      "Animated"
+    ],
+    "properties": {
+      "Texture": {
+        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+        "atlas": "",
+        "texture": "images/character/rabbit-idle.png"
+      }
+    }
+  }
+}
