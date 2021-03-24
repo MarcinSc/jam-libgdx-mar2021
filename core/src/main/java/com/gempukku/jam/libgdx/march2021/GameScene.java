@@ -21,12 +21,15 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.JsonWriter;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.gempukku.jam.libgdx.march2021.action.Action;
 import com.gempukku.jam.libgdx.march2021.action.DelayedAction;
 import com.gempukku.jam.libgdx.march2021.action.FadeInAction;
 import com.gempukku.jam.libgdx.march2021.action.FadeOutAction;
+import com.gempukku.jam.libgdx.march2021.component.ImportTemplateComponent;
 import com.gempukku.jam.libgdx.march2021.component.LevelComponent;
 import com.gempukku.jam.libgdx.march2021.system.ActivateSystem;
 import com.gempukku.jam.libgdx.march2021.system.CameraSystem;
@@ -42,6 +45,7 @@ import com.gempukku.jam.libgdx.march2021.system.activate.AnimateMoveAndDestroyAc
 import com.gempukku.jam.libgdx.march2021.system.activate.MoveToLevelActivateListener;
 import com.gempukku.jam.libgdx.march2021.system.level.IntoRabbitHoleLevelLogic;
 import com.gempukku.jam.libgdx.march2021.system.level.LevelContainer;
+import com.gempukku.jam.libgdx.march2021.system.level.TheGreatFallLevelLogic;
 import com.gempukku.jam.libgdx.march2021.system.sensor.ContactSensorContactListener;
 import com.gempukku.jam.libgdx.march2021.system.sensor.EntitySensorContactListener;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent;
@@ -96,6 +100,7 @@ public class GameScene implements Scene {
 
         levelContainer = new LevelContainer();
         levelContainer.addLevelLogic(1, new IntoRabbitHoleLevelLogic());
+        levelContainer.addLevelLogic(2, new TheGreatFallLevelLogic());
 
         performanceProfiler = new PerformanceProfiler(profilerInfoProvider);
         resources.add(performanceProfiler);
@@ -270,12 +275,20 @@ public class GameScene implements Scene {
 
     private boolean createEntities(String level) {
         Json json = new AshleyEngineJson(engine);
+        JsonReader jsonReader = new JsonReader();
         ClasspathFileHandleResolver fileHandleResolver = new ClasspathFileHandleResolver();
         if (fileHandleResolver.resolve(level).exists()) {
             createEntity(AshleyTemplateEntityLoader.loadTemplate("handWrittenEntities/player/player.json", json, fileHandleResolver));
 
             JsonValue levelJson = JsonTemplateLoader.loadTemplateFromFile(level, fileHandleResolver);
             for (JsonValue entity : levelJson.get("entities")) {
+                JsonValue importTemplate = entity.get(ImportTemplateComponent.class.getName());
+                if (importTemplate != null) {
+                    JsonValue importedPart = jsonReader.parse(fileHandleResolver.resolve(importTemplate.getString("path")));
+                    for (JsonValue importedComponent : importedPart) {
+                        entity.addChild(importedComponent.name(), clone(importedComponent));
+                    }
+                }
                 createEntity(AshleyTemplateEntityLoader.convertToAshley(entity, json));
             }
             return true;
@@ -283,6 +296,13 @@ public class GameScene implements Scene {
             Gdx.app.exit();
             return false;
         }
+    }
+
+    private static JsonValue clone(JsonValue value) {
+        if (value.isString())
+            return new JsonValue(value.asString());
+        JsonReader reader = new JsonReader();
+        return reader.parse(value.toJson(JsonWriter.OutputType.json));
     }
 
     private void createEntity(EntityDef template) {

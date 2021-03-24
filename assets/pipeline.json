@@ -708,7 +708,7 @@
       "name": "Background",
       "type": "Color",
       "data": {
-        "color": "ffffffff"
+        "color": "000000ff"
       }
     }
   ],

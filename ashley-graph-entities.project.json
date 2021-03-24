@@ -9,6 +9,7 @@
   "entityGroups": [
     {
       "name": "level-1",
+      "enabled": false,
       "entities": [
         {
           "path": "Clouds",
@@ -589,6 +590,7 @@
     },
     {
       "name": "level-1-back",
+      "enabled": false,
       "entities": [
         {
           "path": null,
@@ -610,6 +612,88 @@
                   "layer": 100,
                   "width": 960,
                   "height": 240,
+                  "tags": [
+                    "Animated"
+                  ],
+                  "properties": {}
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "level-2",
+      "enabled": true,
+      "entities": [
+        {
+          "path": null,
+          "data": {
+            "id": "5a0ebbba0899482cabe879450fc8e7c0",
+            "name": "Level",
+            "templates": [],
+            "components": [
+              {
+                "id": "5d8dc22ac18a45bab95b9aa008fa1f7c",
+                "data": {
+                  "bounds": {
+                    "x": -160.0,
+                    "y": -480.0,
+                    "width": 320.0,
+                    "height": 960.0
+                  },
+                  "snapWindow": {
+                    "x": 0.30000001192092896,
+                    "y": 0.5,
+                    "width": 0.20000000298023224,
+                    "height": 0.20000000298023224
+                  },
+                  "snapSpeed": {
+                    "x": 0.20000000298023224,
+                    "y": 0.20000000298023224
+                  },
+                  "lockWindow": {
+                    "x": 0.20000000298023224,
+                    "y": 0.30000001192092896,
+                    "width": 0.4000000059604645,
+                    "height": 0.6000000238418579
+                  },
+                  "color": "000000",
+                  "title": "The Great Fall",
+                  "quote": "Down, down, down. Would the fall never come to an end!",
+                  "levelNumber": 2
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "level-2-back",
+      "enabled": true,
+      "entities": [
+        {
+          "path": null,
+          "data": {
+            "id": "b12163532451446a9b1d1bd961bff5ae",
+            "name": "Background",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 0,
+                  "width": 320,
+                  "height": 960,
                   "tags": [
                     "Animated"
                   ],
