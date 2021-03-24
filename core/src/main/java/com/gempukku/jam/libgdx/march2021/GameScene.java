@@ -193,7 +193,6 @@ public class GameScene implements Scene {
         for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
             LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
             int levelNumber = levelComponent.getLevelNumber();
-            showLevelScreen(levelNumber, levelComponent.getTitle(), levelComponent.getQuote());
             levelContainer.getLevelLogic(levelNumber).unloadLogic(engine);
         }
 

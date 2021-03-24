@@ -378,7 +378,9 @@
           "data": {
             "id": "3c661346224c4b88aa63a8f8f3129b88",
             "name": "Rabbit 1 Trigger",
-            "templates": [],
+            "templates": [
+              "aca97ee44096460b8882f731c89af8a2"
+            ],
             "components": [
               {
                 "id": "PositionComponent",
@@ -388,47 +390,65 @@
                 }
               },
               {
-                "id": "Box2DBodyComponent",
+                "id": "4fda2002eaba4a27a3437c22f37bfb17",
                 "data": {
-                  "bodyType": "StaticBody",
-                  "fixedRotation": false,
-                  "bullet": false,
-                  "linearDamping": 0,
-                  "angularDamping": 0,
-                  "allowSleep": true,
-                  "gravityScale": 1,
-                  "fixtures": [
-                    {
-                      "friction": 0.2,
-                      "restitution": 0,
-                      "density": 0,
-                      "sensor": false,
-                      "sensorName": "",
-                      "sensorType": "",
-                      "category": [
-                        "Activable"
-                      ],
-                      "mask": [
-                        "Sensor"
-                      ],
-                      "shape": {
-                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
-                        "width": 32,
-                        "height": 240,
-                        "center": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "angle": 0
-                      }
-                    }
-                  ]
+                  "id": "running-rabbit-1",
+                  "spriteState": "Walk",
+                  "distance": {
+                    "x": 100.0,
+                    "y": 0.0
+                  },
+                  "time": 0.4000000059604645
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "5db5e4df4139413d9dada0846b5aefa0",
+            "name": "Rabbit 2",
+            "templates": [
+              "d67cfcdf0d784a859c58997218b5f99d"
+            ],
+            "components": [
+              {
+                "id": "a73093ec23a94c0f8bf2348c81dc0524",
+                "data": {
+                  "id": "running-rabbit-2"
+                }
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 128,
+                  "y": -96
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "09bd5f9320bf46008cfe35d35ad5ea25",
+            "name": "Rabbit 2 Trigger",
+            "templates": [
+              "aca97ee44096460b8882f731c89af8a2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 16,
+                  "y": 0
                 }
               },
               {
                 "id": "4fda2002eaba4a27a3437c22f37bfb17",
                 "data": {
-                  "id": "running-rabbit-1",
+                  "id": "running-rabbit-2",
                   "spriteState": "Walk",
                   "distance": {
                     "x": 100.0,
@@ -827,6 +847,54 @@
                   "texture": "images/environment/cloud1.png"
                 }
               }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "aca97ee44096460b8882f731c89af8a2",
+        "name": "LargeTrigger",
+        "templates": [],
+        "components": [
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "StaticBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Activable"
+                  ],
+                  "mask": [
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 32,
+                    "height": 240,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
             }
           }
         ]
