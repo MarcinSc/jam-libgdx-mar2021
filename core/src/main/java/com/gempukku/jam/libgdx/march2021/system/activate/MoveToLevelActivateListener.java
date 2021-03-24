@@ -15,7 +15,8 @@ public class MoveToLevelActivateListener implements ActivateListener {
     @Override
     public void activate(Entity activator, Entity activated) {
         MoveToLevelActionComponent moveToLevel = activated.getComponent(MoveToLevelActionComponent.class);
-        if (moveToLevel != null) {
+        if (moveToLevel != null && !moveToLevel.isExecuted()) {
+            moveToLevel.setExecuted(true);
             levelConsumer.accept(moveToLevel.getLevel());
         }
     }

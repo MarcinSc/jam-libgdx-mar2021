@@ -339,7 +339,10 @@
                     "width": 0.4000000059604645,
                     "height": 0.6000000238418579
                   },
-                  "color": "89dceb"
+                  "color": "89dceb",
+                  "title": "Down the Rabbit Hole",
+                  "quote": "Who in the world am I? Ah, that's the great puzzle.",
+                  "levelNumber": 1
                 }
               }
             ]
@@ -610,6 +613,21 @@
           "name": "color",
           "type": "Object",
           "fieldTypeId": "String"
+        },
+        {
+          "name": "title",
+          "type": "Object",
+          "fieldTypeId": "String"
+        },
+        {
+          "name": "quote",
+          "type": "Object",
+          "fieldTypeId": "String"
+        },
+        {
+          "name": "levelNumber",
+          "type": "Object",
+          "fieldTypeId": "int"
         }
       ]
     },

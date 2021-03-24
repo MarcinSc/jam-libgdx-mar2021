@@ -6,7 +6,7 @@
       "id": "ffd9b5257b944d4480b9e62c420bb54a",
       "type": "Property",
       "x": 50.0,
-      "y": 344.0,
+      "y": 652.0,
       "data": {
         "name": "Camera",
         "type": "Camera"
@@ -15,24 +15,105 @@
     {
       "id": "9caa496759d949d0a0deb7b46547ae16",
       "type": "Property",
-      "x": 88.0,
-      "y": 487.0,
+      "x": 121.0,
+      "y": 791.0,
       "data": {
         "name": "Background",
         "type": "Color"
       }
     },
     {
+      "id": "29d3488a4d4940ea982de04da99bdb9d",
+      "type": "UIRenderer",
+      "x": 310.0,
+      "y": 129.0,
+      "data": {
+        "id": ""
+      }
+    },
+    {
       "id": "end",
       "type": "PipelineEnd",
-      "x": 343.0,
+      "x": 346.0,
       "y": 50.0
+    },
+    {
+      "id": "ae83331800c64444a887512ba7686e0a",
+      "type": "FullScreenShaderRenderer",
+      "x": 586.0,
+      "y": 129.0,
+      "data": {
+        "shaders": [
+          {
+            "id": "91295cc2a33c4d859aba6d14e63bb4c3",
+            "tag": "Blackout",
+            "shader": {
+              "version": "0.5.0",
+              "type": "Screen_Shader",
+              "nodes": [
+                {
+                  "id": "e252e32e27ef484bae9e4170d0e29022",
+                  "type": "ValueColor",
+                  "x": 50.0,
+                  "y": 346.0,
+                  "data": {
+                    "color": "000000ff"
+                  }
+                },
+                {
+                  "id": "91771ddf53324f338e4e6fdeffb7e6ba",
+                  "type": "Property",
+                  "x": 157.0,
+                  "y": 269.0,
+                  "data": {
+                    "name": "Alpha",
+                    "type": "Float"
+                  }
+                },
+                {
+                  "id": "end",
+                  "type": "FullScreenShaderEnd",
+                  "x": 437.0,
+                  "y": 50.0,
+                  "data": {
+                    "blending": "alpha"
+                  }
+                }
+              ],
+              "connections": [
+                {
+                  "fromNode": "e252e32e27ef484bae9e4170d0e29022",
+                  "fromField": "value",
+                  "toNode": "end",
+                  "toField": "color"
+                },
+                {
+                  "fromNode": "91771ddf53324f338e4e6fdeffb7e6ba",
+                  "fromField": "value",
+                  "toNode": "end",
+                  "toField": "alpha"
+                }
+              ],
+              "properties": [
+                {
+                  "name": "Alpha",
+                  "type": "Float",
+                  "data": {
+                    "x": 0.0
+                  }
+                }
+              ],
+              "groups": []
+            }
+          }
+        ]
+      }
     },
     {
       "id": "0c1699efe0414cf295be58e74319f00a",
       "type": "SpriteShaderRenderer",
-      "x": 262.0,
-      "y": 144.0,
+      "x": 265.0,
+      "y": 452.0,
       "data": {
         "shaders": [
           {
@@ -576,8 +657,8 @@
     {
       "id": "e856fcafa98141b8819599ff70ed2d53",
       "type": "PipelineStart",
-      "x": 342.0,
-      "y": 464.0
+      "x": 344.0,
+      "y": 768.0
     }
   ],
   "connections": [
@@ -585,12 +666,6 @@
       "fromNode": "e856fcafa98141b8819599ff70ed2d53",
       "fromField": "output",
       "toNode": "0c1699efe0414cf295be58e74319f00a",
-      "toField": "input"
-    },
-    {
-      "fromNode": "0c1699efe0414cf295be58e74319f00a",
-      "fromField": "output",
-      "toNode": "end",
       "toField": "input"
     },
     {
@@ -604,6 +679,24 @@
       "fromField": "value",
       "toNode": "e856fcafa98141b8819599ff70ed2d53",
       "toField": "background"
+    },
+    {
+      "fromNode": "29d3488a4d4940ea982de04da99bdb9d",
+      "fromField": "output",
+      "toNode": "end",
+      "toField": "input"
+    },
+    {
+      "fromNode": "ae83331800c64444a887512ba7686e0a",
+      "fromField": "output",
+      "toNode": "29d3488a4d4940ea982de04da99bdb9d",
+      "toField": "input"
+    },
+    {
+      "fromNode": "0c1699efe0414cf295be58e74319f00a",
+      "fromField": "output",
+      "toNode": "ae83331800c64444a887512ba7686e0a",
+      "toField": "input"
     }
   ],
   "properties": [

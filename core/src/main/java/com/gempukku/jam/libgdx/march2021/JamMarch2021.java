@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureArray;
 import com.badlogic.gdx.graphics.glutils.GLFrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.gempukku.libgdx.graph.plugin.screen.ScreenPluginRuntimeInitializer;
 import com.gempukku.libgdx.graph.plugin.sprites.SpritesPluginRuntimeInitializer;
 import com.gempukku.libgdx.graph.plugin.ui.UIPluginRuntimeInitializer;
 
@@ -26,6 +27,7 @@ public class JamMarch2021 extends ApplicationAdapter {
     public void create() {
         UIPluginRuntimeInitializer.register();
         SpritesPluginRuntimeInitializer.register();
+        ScreenPluginRuntimeInitializer.register();
 
         currentScene = new GameScene(profilerInfoProvider);
         currentScene.initializeScene();
