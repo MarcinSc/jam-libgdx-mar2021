@@ -254,11 +254,15 @@ public class GameScene implements Scene {
     private void createEntities(String level) {
         Json json = new AshleyEngineJson(engine);
         ClasspathFileHandleResolver fileHandleResolver = new ClasspathFileHandleResolver();
-        createEntity(AshleyTemplateEntityLoader.loadTemplate("handWrittenEntities/player/player.json", json, fileHandleResolver));
+        if (fileHandleResolver.resolve(level).exists()) {
+            createEntity(AshleyTemplateEntityLoader.loadTemplate("handWrittenEntities/player/player.json", json, fileHandleResolver));
 
-        JsonValue levelJson = JsonTemplateLoader.loadTemplateFromFile(level, fileHandleResolver);
-        for (JsonValue entity : levelJson.get("entities")) {
-            createEntity(AshleyTemplateEntityLoader.convertToAshley(entity, json));
+            JsonValue levelJson = JsonTemplateLoader.loadTemplateFromFile(level, fileHandleResolver);
+            for (JsonValue entity : levelJson.get("entities")) {
+                createEntity(AshleyTemplateEntityLoader.convertToAshley(entity, json));
+            }
+        } else {
+            Gdx.app.exit();
         }
     }
 
