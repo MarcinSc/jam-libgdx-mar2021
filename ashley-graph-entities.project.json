@@ -1,6 +1,6 @@
 {
   "settings": {
-    "rendererPipeline": "assets/pipeline.json",
+    "rendererPipeline": "assets/pipeline.jsonG",
     "assetsFolder": "assets",
     "exportFolder": "assets",
     "templatesSubfolder": "templates",
@@ -628,6 +628,44 @@
       "enabled": true,
       "entities": [
         {
+          "path": "Enemies",
+          "data": {
+            "id": "4975b0e71881471590bba04ea256a7f7",
+            "name": "Mouse 1",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -88,
+                  "y": 343.99997
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Enemies",
+          "data": {
+            "id": "1e7d53384b8343709c5c075bb9c8926d",
+            "name": "Mouse 2",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 32,
+                  "y": 264
+                }
+              }
+            ]
+          }
+        },
+        {
           "path": "Platforms",
           "data": {
             "id": "e9b1783f8da548479b11c4e647444e23",
@@ -1076,6 +1114,154 @@
                   }
                 }
               ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "b2790ff52fe44aa78102aeaa13d3e7c5",
+        "name": "Mouse",
+        "templates": [],
+        "components": [
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "DynamicBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Character",
+                    "Harmful",
+                    "Attackable"
+                  ],
+                  "mask": [
+                    "Environment",
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 14,
+                    "height": 12,
+                    "center": {
+                      "x": 0,
+                      "y": -2
+                    },
+                    "angle": 0
+                  }
+                },
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": true,
+                  "sensorName": "foot",
+                  "sensorType": "groundContact",
+                  "category": [
+                    "Sensor"
+                  ],
+                  "mask": [
+                    "Ground"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 12,
+                    "height": 4,
+                    "center": {
+                      "x": 0,
+                      "y": -8
+                    },
+                    "angle": 0
+                  }
+                },
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": true,
+                  "sensorName": "leftLookAhead",
+                  "sensorType": "groundContact",
+                  "category": [
+                    "Sensor"
+                  ],
+                  "mask": [
+                    "Ground"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 2,
+                    "height": 4,
+                    "center": {
+                      "x": -8,
+                      "y": -8
+                    },
+                    "angle": 0
+                  }
+                },
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": true,
+                  "sensorName": "rightLookAhead",
+                  "sensorType": "groundContact",
+                  "category": [
+                    "Sensor"
+                  ],
+                  "mask": [
+                    "Ground"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 2,
+                    "height": 4,
+                    "center": {
+                      "x": 8,
+                      "y": -8
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 9,
+              "width": 16,
+              "height": 16,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/character/mouse.png"
+                }
+              }
+            }
+          },
+          {
+            "id": "328dd33f79a14f4e8ca6e44d343738fe",
+            "data": {
+              "maxHealth": 1,
+              "health": 1
             }
           }
         ]

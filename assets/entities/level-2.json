@@ -2,6 +2,24 @@
   "entities": [
     {
       "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -88,
+        "y": 343.99997
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 32,
+        "y": 264
+      }
+    },
+    {
+      "tpl:extends": [
         "templates/UnderPlatform1.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
