@@ -1,5 +1,6 @@
 package com.gempukku.jam.libgdx.march2021.system.sensor;
 
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.SensorContactListener;
 
@@ -11,8 +12,8 @@ public class ContactSensorContactListener implements SensorContactListener<Conta
     }
 
     @Override
-    public ContactSensorData createNewSensorValue() {
-        return new ContactSensorData();
+    public ContactSensorData createNewSensorValue(Entity entity) {
+        return new ContactSensorData(entity);
     }
 
     @Override
@@ -27,5 +28,10 @@ public class ContactSensorContactListener implements SensorContactListener<Conta
         if ((other.getFilterData().categoryBits & collisionBits) > 0) {
             sensorData.decrementContactCount();
         }
+    }
+
+    @Override
+    public void preSolve(ContactSensorData sensorData, Fixture other) {
+
     }
 }

@@ -12,8 +12,8 @@ public class EntitySensorContactListener implements SensorContactListener<Entity
     }
 
     @Override
-    public EntitySensorData createNewSensorValue() {
-        return new EntitySensorData();
+    public EntitySensorData createNewSensorValue(Entity entity) {
+        return new EntitySensorData(entity);
     }
 
     @Override
@@ -28,5 +28,10 @@ public class EntitySensorContactListener implements SensorContactListener<Entity
         if ((other.getFilterData().categoryBits & collisionBits) > 0) {
             sensorData.removeContactEntity((Entity) other.getUserData());
         }
+    }
+
+    @Override
+    public void preSolve(EntitySensorData sensorData, Fixture other) {
+
     }
 }

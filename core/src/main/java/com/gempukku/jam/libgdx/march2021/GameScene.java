@@ -39,6 +39,7 @@ import com.gempukku.jam.libgdx.march2021.system.FiniteStateSystem;
 import com.gempukku.jam.libgdx.march2021.system.IdSystem;
 import com.gempukku.jam.libgdx.march2021.system.InputControlSystem;
 import com.gempukku.jam.libgdx.march2021.system.LevelSetupSystem;
+import com.gempukku.jam.libgdx.march2021.system.PlayerFallListener;
 import com.gempukku.jam.libgdx.march2021.system.SpawnSystem;
 import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
 import com.gempukku.jam.libgdx.march2021.system.activate.AnimateMoveAndDestroyActivateListener;
@@ -48,6 +49,7 @@ import com.gempukku.jam.libgdx.march2021.system.level.LevelContainer;
 import com.gempukku.jam.libgdx.march2021.system.level.TheGreatFallLevelLogic;
 import com.gempukku.jam.libgdx.march2021.system.sensor.ContactSensorContactListener;
 import com.gempukku.jam.libgdx.march2021.system.sensor.EntitySensorContactListener;
+import com.gempukku.jam.libgdx.march2021.system.sensor.FallContactSensorContactListener;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.Box2DSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.EntityPositionUpdateListener;
@@ -400,10 +402,11 @@ public class GameScene implements Scene {
         engine.addSystem(finiteStateSystem);
 
         Box2DSystem box2DSystem = new Box2DSystem(10, new Vector2(0, -15f), false, 100);
-        box2DSystem.addSensorContactListener("groundContact", new ContactSensorContactListener(box2DSystem.getBitForCategory("Ground")));
+        box2DSystem.addSensorContactListener("groundContact", new FallContactSensorContactListener(box2DSystem.getBitForCategory("Ground")));
         box2DSystem.addSensorContactListener("attackableList", new EntitySensorContactListener(box2DSystem.getBitForCategory("Attackable")));
         box2DSystem.addSensorContactListener("activator", new EntitySensorContactListener(box2DSystem.getBitForCategory("Activable")));
         box2DSystem.addSensorContactListener("vulnerable", new ContactSensorContactListener(box2DSystem.getBitForCategory("Harmful")));
+        box2DSystem.addCollisionListener(new PlayerFallListener());
         engine.addSystem(box2DSystem);
 
         RenderingSystem renderingSystem = new RenderingSystem(20, timeSystem.getTimeProvider(), pipelineRenderer, textureLoader);
