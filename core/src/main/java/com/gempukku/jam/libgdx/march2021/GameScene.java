@@ -406,7 +406,13 @@ public class GameScene implements Scene {
         box2DSystem.addSensorContactListener("attackableList", new EntitySensorContactListener(box2DSystem.getBitForCategory("Attackable")));
         box2DSystem.addSensorContactListener("activator", new EntitySensorContactListener(box2DSystem.getBitForCategory("Activable")));
         box2DSystem.addSensorContactListener("vulnerable", new ContactSensorContactListener(box2DSystem.getBitForCategory("Harmful")));
-        box2DSystem.addCollisionListener(new PlayerFallListener());
+        box2DSystem.addCollisionListener(new PlayerFallListener(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        playerDied();
+                    }
+                }));
         engine.addSystem(box2DSystem);
 
         RenderingSystem renderingSystem = new RenderingSystem(20, timeSystem.getTimeProvider(), pipelineRenderer, textureLoader);

@@ -762,6 +762,158 @@
         {
           "path": "Platforms",
           "data": {
+            "id": "0ce7288bd0ea4094b97460fc16d5bcda",
+            "name": "Platform 10",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 86,
+                  "y": -46
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "c04be7113c874045bff472c5f88afd84",
+            "name": "Platform 11",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -6,
+                  "y": -118
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "da0e893543a84e889d131d7156b6e844",
+            "name": "Platform 12",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -84,
+                  "y": -188
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "d07b4a4c639a4b709cbb26b393bf0ccb",
+            "name": "Platform 13",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 80,
+                  "y": -198
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "0c6ffc0033704bd88144376c857bdd40",
+            "name": "Platform 14",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -10,
+                  "y": -262
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "9233aa6e627a4091be08501699f46b7a",
+            "name": "Platform 15",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -68,
+                  "y": -322
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "c3269de94cda47798dfa1a00cc10c71a",
+            "name": "Platform 16",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 46,
+                  "y": -352
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "81917099a3eb4066a6802fa79564b793",
+            "name": "Platform 17",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -38,
+                  "y": -414
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
             "id": "7e5ec0a95ce04a149c6ec4f70fd1391f",
             "name": "Platform 2",
             "templates": [
@@ -817,6 +969,157 @@
           }
         },
         {
+          "path": "Platforms",
+          "data": {
+            "id": "42ec67455fbd454686e466a4c36987b5",
+            "name": "Platform 5",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 125,
+                  "y": -413
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "875efca55fd64f5585ab6b66334bcb90",
+            "name": "Platform 6",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -81,
+                  "y": 176
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "109195bffcae4e72a1972045954a2f25",
+            "name": "Platform 7",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 118,
+                  "y": 182
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "f7cdd60067b34776a68eeba3de324f98",
+            "name": "Platform 8",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 36,
+                  "y": 102
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "d5030a7ed2b7439890861d2a18389503",
+            "name": "Platform 9",
+            "templates": [
+              "d4d7327d4bee4675b118940b90de2de2"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -44,
+                  "y": 22
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "f3250d47c78b46108f31a3c727746f6e",
+            "name": "Left Wall",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -160,
+                  "y": 0
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 16,
+                        "height": 980,
+                        "center": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
           "path": null,
           "data": {
             "id": "5a0ebbba0899482cabe879450fc8e7c0",
@@ -839,8 +1142,8 @@
                     "height": 0.20000000298023224
                   },
                   "snapSpeed": {
-                    "x": 0.20000000298023224,
-                    "y": 0.20000000298023224
+                    "x": 0.30000001192092896,
+                    "y": 0.30000001192092896
                   },
                   "lockWindow": {
                     "x": 0.20000000298023224,
@@ -852,6 +1155,62 @@
                   "title": "The Great Fall",
                   "quote": "\"Down, down, down. Would the fall never come to an end!\"",
                   "levelNumber": 2
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "cf0e043f41e64d0693ae42aa4fdfdb21",
+            "name": "Right Wall",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 160,
+                  "y": 0
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 16,
+                        "height": 980,
+                        "center": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
                 }
               }
             ]

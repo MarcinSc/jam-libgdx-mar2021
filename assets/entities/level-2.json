@@ -91,6 +91,78 @@
         "templates/UnderPlatform2.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 86,
+        "y": -46
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -6,
+        "y": -118
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -84,
+        "y": -188
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 80,
+        "y": -198
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -10,
+        "y": -262
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -68,
+        "y": -322
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 46,
+        "y": -352
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -38,
+        "y": -414
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": -64,
         "y": 336
       }
@@ -114,6 +186,94 @@
       }
     },
     {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 125,
+        "y": -413
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -81,
+        "y": 176
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 118,
+        "y": 182
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 36,
+        "y": 102
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform2.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -44,
+        "y": 22
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -160,
+        "y": 0
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 16,
+              "height": 980,
+              "center": {
+                "x": 0,
+                "y": 0
+              },
+              "angle": 0
+            }
+          }
+        ]
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.jam.libgdx.march2021.component.LevelComponent": {
         "bounds": {
@@ -129,8 +289,8 @@
           "height": 0.20000000298023224
         },
         "snapSpeed": {
-          "x": 0.20000000298023224,
-          "y": 0.20000000298023224
+          "x": 0.30000001192092896,
+          "y": 0.30000001192092896
         },
         "lockWindow": {
           "x": 0.20000000298023224,
@@ -142,6 +302,49 @@
         "title": "The Great Fall",
         "quote": "\"Down, down, down. Would the fall never come to an end!\"",
         "levelNumber": 2
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 160,
+        "y": 0
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 16,
+              "height": 980,
+              "center": {
+                "x": 0,
+                "y": 0
+              },
+              "angle": 0
+            }
+          }
+        ]
       }
     },
     {

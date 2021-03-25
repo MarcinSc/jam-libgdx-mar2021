@@ -6,6 +6,12 @@ import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBody
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.CollisionListener;
 
 public class PlayerFallListener implements CollisionListener {
+    private Runnable playerDeath;
+
+    public PlayerFallListener(Runnable playerDeath) {
+        this.playerDeath = playerDeath;
+    }
+
     @Override
     public void collision(Entity entity1, Entity entity2) {
         PlayerComponent playerComponent = entity1.getComponent(PlayerComponent.class);
@@ -13,6 +19,7 @@ public class PlayerFallListener implements CollisionListener {
             float verticalSpeed = entity1.getComponent(Box2DBodyDataComponent.class).getBody().getLinearVelocity().y;
             if (verticalSpeed < -8) {
                 playerComponent.setDead(true);
+                playerDeath.run();
             }
         }
     }
