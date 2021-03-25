@@ -3,11 +3,10 @@ package com.gempukku.jam.libgdx.march2021.system.activate;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
-import com.gempukku.jam.libgdx.march2021.action.Action;
 import com.gempukku.jam.libgdx.march2021.action.DelayedAction;
 import com.gempukku.jam.libgdx.march2021.action.MoveEntityAction;
 import com.gempukku.jam.libgdx.march2021.component.AnimateMoveAndDestroyComponent;
+import com.gempukku.jam.libgdx.march2021.system.ActionSystem;
 import com.gempukku.jam.libgdx.march2021.system.IdSystem;
 import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent;
@@ -17,11 +16,9 @@ import com.gempukku.libgdx.graph.time.TimeProvider;
 
 public class AnimateMoveAndDestroyActivateListener implements ActivateListener {
     private Engine engine;
-    private Array<Action> actionQueue;
 
-    public AnimateMoveAndDestroyActivateListener(Engine engine, Array<Action> actionQueue) {
+    public AnimateMoveAndDestroyActivateListener(Engine engine) {
         this.engine = engine;
-        this.actionQueue = actionQueue;
     }
 
     @Override
@@ -40,11 +37,12 @@ public class AnimateMoveAndDestroyActivateListener implements ActivateListener {
             float time = animateMoveAndDestroyComponent.getTime();
             entity.getComponent(SpriteStateComponent.class).setState(animateMoveAndDestroyComponent.getSpriteState());
             engine.getSystem(RenderingSystem.class).updateSprite(entity);
-            actionQueue.add(
+            ActionSystem actionSystem = engine.getSystem(ActionSystem.class);
+            actionSystem.addAction(
                     new MoveEntityAction(engine, timeProvider, entity,
                             new Vector2(startX, startY), new Vector2(endX, endY),
                             time));
-            actionQueue.add(
+            actionSystem.addAction(
                     new DelayedAction(timeProvider, time,
                             new Runnable() {
                                 @Override

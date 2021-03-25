@@ -295,7 +295,7 @@
       "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent": {},
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": -432,
-        "y": -96
+        "y": -75
       }
     },
     {

@@ -476,7 +476,7 @@
                 "id": "PositionComponent",
                 "data": {
                   "x": -432,
-                  "y": -96
+                  "y": -75
                 }
               }
             ]
@@ -1231,7 +1231,7 @@
                 "id": "PositionComponent",
                 "data": {
                   "x": 0,
-                  "y": 432
+                  "y": 451
                 }
               }
             ]
@@ -1241,7 +1241,7 @@
     },
     {
       "name": "level-2-back",
-      "enabled": true,
+      "enabled": false,
       "entities": [
         {
           "path": null,

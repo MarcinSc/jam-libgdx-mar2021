@@ -18,7 +18,6 @@ import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionC
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 
 public class CombatSystem extends EntitySystem {
-    private Engine engine;
     private ImmutableArray<Entity> playerEntities;
     private Runnable playerDeathRunnable;
 
@@ -29,7 +28,6 @@ public class CombatSystem extends EntitySystem {
 
     @Override
     public void addedToEngine(Engine engine) {
-        this.engine = engine;
         playerEntities = engine.getEntitiesFor(Family.all(PlayerComponent.class, PositionComponent.class).get());
     }
 
@@ -66,12 +64,15 @@ public class CombatSystem extends EntitySystem {
     }
 
     private void entityDamaged(Entity entity) {
+        Engine engine = getEngine();
+
         if (entity.getComponent(UpdateSpriteOnDamageComponent.class) != null) {
             engine.getSystem(RenderingSystem.class).updateSpriteProperties(entity);
         }
     }
 
     private void entityDies(Entity entity) {
+        Engine engine = getEngine();
         engine.removeEntity(entity);
     }
 }

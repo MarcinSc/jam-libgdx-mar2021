@@ -7,14 +7,12 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.gdx.graphics.Color;
 import com.gempukku.jam.libgdx.march2021.component.LevelComponent;
+import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
 import com.gempukku.libgdx.graph.pipeline.PipelineRenderer;
 
 public class LevelSetupSystem extends EntitySystem {
-    private PipelineRenderer pipelineRenderer;
-
-    public LevelSetupSystem(int priority, PipelineRenderer pipelineRenderer) {
+    public LevelSetupSystem(int priority) {
         super(priority);
-        this.pipelineRenderer = pipelineRenderer;
     }
 
     @Override
@@ -26,6 +24,7 @@ public class LevelSetupSystem extends EntitySystem {
                     public void entityAdded(Entity entity) {
                         LevelComponent level = entity.getComponent(LevelComponent.class);
                         Color backgroundColor = Color.valueOf(level.getColor());
+                        PipelineRenderer pipelineRenderer = engine.getSystem(RenderingSystem.class).getPipelineRenderer();
                         pipelineRenderer.setPipelineProperty("Background", backgroundColor);
                     }
 

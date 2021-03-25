@@ -19,15 +19,19 @@ import com.gempukku.libgdx.lib.fst.TriggerState;
 
 public class FiniteStateSystem extends EntitySystem {
     private ImmutableArray<Entity> finiteStateEntities;
-    private Engine engine;
+
+    private boolean enabled = true;
 
     public FiniteStateSystem(int priority) {
         super(priority);
     }
 
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @Override
     public void addedToEngine(Engine engine) {
-        this.engine = engine;
         Family family = Family.all(FiniteStateComponent.class).get();
         engine.addEntityListener(family,
                 new EntityListener() {
@@ -39,7 +43,7 @@ public class FiniteStateSystem extends EntitySystem {
                         FiniteStateMachine machine = new FiniteStateMachine(initialState);
 
                         for (String state : finiteState.getMachineStates().keys()) {
-                            machine.addState(state, createMachineState(state, finiteState, entity));
+                            machine.addState(state, createMachineState(engine, state, finiteState, entity));
                         }
 
                         finiteState.setFiniteStateMachine(machine);
@@ -53,40 +57,42 @@ public class FiniteStateSystem extends EntitySystem {
         finiteStateEntities = engine.getEntitiesFor(family);
     }
 
-    private MachineState createMachineState(String state, FiniteStateComponent finiteState, Entity entity) {
+    private MachineState createMachineState(Engine engine, String state, FiniteStateComponent finiteState, Entity entity) {
         TriggerState triggerState = finiteState.getMachineStates().get(state);
-        initializeState(entity, triggerState);
+        initializeState(engine, entity, triggerState);
 
         TriggerMachineState machineState = new TriggerMachineState(triggerState);
         ObjectMap<String, TriggerCondition> transitions = finiteState.getTransitions().get(state);
         for (ObjectMap.Entry<String, TriggerCondition> transition : transitions) {
             String targetState = transition.key;
-            initializeTransition(entity, transition.value);
+            initializeTransition(engine, entity, transition.value);
             machineState.addTransition(targetState, transition.value);
         }
         return machineState;
     }
 
-    private void initializeTransition(Entity entity, TriggerCondition triggerCondition) {
+    private void initializeTransition(Engine engine, Entity entity, TriggerCondition triggerCondition) {
         if (triggerCondition instanceof EngineTriggerCondition)
             ((EngineTriggerCondition) triggerCondition).init(entity, engine);
         if (triggerCondition instanceof ContainerTriggerCondition) {
             for (TriggerCondition child : ((ContainerTriggerCondition) triggerCondition).getChildren()) {
-                initializeTransition(entity, child);
+                initializeTransition(engine, entity, child);
             }
         }
     }
 
-    private void initializeState(Entity entity, TriggerState machineState) {
+    private void initializeState(Engine engine, Entity entity, TriggerState machineState) {
         if (machineState instanceof EngineTriggerState)
             ((EngineTriggerState) machineState).init(entity, engine);
     }
 
     @Override
     public void update(float deltaTime) {
-        for (Entity finiteStateEntity : finiteStateEntities) {
-            FiniteStateComponent finiteStateComponent = finiteStateEntity.getComponent(FiniteStateComponent.class);
-            finiteStateComponent.getFiniteStateMachine().update(deltaTime);
+        if (enabled) {
+            for (Entity finiteStateEntity : finiteStateEntities) {
+                FiniteStateComponent finiteStateComponent = finiteStateEntity.getComponent(FiniteStateComponent.class);
+                finiteStateComponent.getFiniteStateMachine().update(deltaTime);
+            }
         }
     }
 }
