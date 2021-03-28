@@ -1,0 +1,22 @@
+{
+  "tpl:extends": [],
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+    "x": 0,
+    "y": 0
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+    "layer": 10,
+    "width": 64,
+    "height": 64,
+    "tags": [
+      "Animated"
+    ],
+    "properties": {
+      "Texture": {
+        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+        "atlas": "",
+        "texture": "images/character/mad-hatter.png"
+      }
+    }
+  }
+}

@@ -2407,6 +2407,111 @@
   ],
   "templates": [
     {
+      "path": "party",
+      "data": {
+        "id": "704ceb4b20d54a02b75ea6cff78f0cce",
+        "name": "PartyGoer1",
+        "templates": [],
+        "components": [
+          {
+            "id": "PositionComponent",
+            "data": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 10,
+              "width": 64,
+              "height": 64,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/character/cheshire-cat.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": "party",
+      "data": {
+        "id": "7b13b2e3dcc640b5a85cbb559de71537",
+        "name": "PartyGoer2",
+        "templates": [],
+        "components": [
+          {
+            "id": "PositionComponent",
+            "data": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 10,
+              "width": 64,
+              "height": 64,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/character/mad-hatter.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": "party",
+      "data": {
+        "id": "caccd64df4004d07a21fbc640167bbb0",
+        "name": "PartyGoer3",
+        "templates": [],
+        "components": [
+          {
+            "id": "PositionComponent",
+            "data": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 10,
+              "width": 64,
+              "height": 64,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/character/zebra.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
       "path": "shelves",
       "data": {
         "id": "752ba1aee37c410f8829279acc3f3936",

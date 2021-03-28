@@ -1,6 +1,64 @@
 {
   "entities": [
     {
+      "tpl:extends": [
+        "templates/Chair.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -112,
+        "y": -48
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Chair.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 112,
+        "y": -48
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Chair.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -44,
+        "y": 24
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Chair.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 44,
+        "y": 24
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 0,
+        "y": -64
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+        "layer": 11,
+        "width": 128,
+        "height": 96,
+        "tags": [
+          "Animated"
+        ],
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/environment/table.png"
+          }
+        }
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": 0,
