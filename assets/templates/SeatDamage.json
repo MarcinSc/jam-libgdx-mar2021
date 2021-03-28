@@ -1,0 +1,43 @@
+{
+  "tpl:extends": [],
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+    "x": 0,
+    "y": 0
+  },
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+    "bodyType": "StaticBody",
+    "fixedRotation": false,
+    "bullet": false,
+    "linearDamping": 0,
+    "angularDamping": 0,
+    "allowSleep": true,
+    "gravityScale": 1,
+    "fixtures": [
+      {
+        "friction": 0.2,
+        "restitution": 0,
+        "density": 0,
+        "sensor": false,
+        "sensorName": "",
+        "sensorType": "",
+        "category": [
+          "Harmful"
+        ],
+        "mask": [
+          "Character",
+          "Sensor"
+        ],
+        "shape": {
+          "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+          "width": 64,
+          "height": 64,
+          "center": {
+            "x": 0,
+            "y": 0
+          },
+          "angle": 0
+        }
+      }
+    ]
+  }
+}

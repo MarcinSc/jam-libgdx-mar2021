@@ -109,12 +109,6 @@ public class LevelSystem extends EntitySystem {
     public void unloadLevel(Runnable followup) {
         Engine engine = getEngine();
 
-        for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
-            LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
-            int levelNumber = levelComponent.getLevelNumber();
-            levelContainer.getLevelLogic(levelNumber).unloadLogic(engine);
-        }
-
         PipelineRenderer pipelineRenderer = engine.getSystem(RenderingSystem.class).getPipelineRenderer();
         GraphScreenShaders screenShaders = pipelineRenderer.getPluginData(GraphScreenShaders.class);
         float fadeOutLength = 1f;
@@ -126,6 +120,11 @@ public class LevelSystem extends EntitySystem {
                 new Runnable() {
                     @Override
                     public void run() {
+                        for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
+                            LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
+                            int levelNumber = levelComponent.getLevelNumber();
+                            levelContainer.getLevelLogic(levelNumber).unloadLogic(engine);
+                        }
                         engine.removeAllEntities();
                         actionSystem.clearActions();
                         followup.run();

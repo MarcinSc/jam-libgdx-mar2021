@@ -1727,7 +1727,7 @@
               {
                 "id": "SpriteComponent",
                 "data": {
-                  "layer": 11,
+                  "layer": 12,
                   "width": 128,
                   "height": 96,
                   "tags": [
@@ -2630,6 +2630,118 @@
     {
       "path": null,
       "data": {
+        "id": "d954323c4ad345c38aa1b8fec9ffa947",
+        "name": "FallingDamage",
+        "templates": [],
+        "components": [
+          {
+            "id": "PositionComponent",
+            "data": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "StaticBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Harmful"
+                  ],
+                  "mask": [
+                    "Character",
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 36,
+                    "height": 240,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "6e7db591bbcd46cabb3de7166ffc4712",
+        "name": "FloorDamage",
+        "templates": [],
+        "components": [
+          {
+            "id": "PositionComponent",
+            "data": {
+              "x": 0,
+              "y": -88
+            }
+          },
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "StaticBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Harmful"
+                  ],
+                  "mask": [
+                    "Character",
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 320,
+                    "height": 64,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
         "id": "aca97ee44096460b8882f731c89af8a2",
         "name": "LargeTrigger",
         "templates": [],
@@ -3380,6 +3492,62 @@
                   "texture": "images/character/rabbit-idle.png"
                 }
               }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "074458615f594de6af8148b0dd1292fa",
+        "name": "SeatDamage",
+        "templates": [],
+        "components": [
+          {
+            "id": "PositionComponent",
+            "data": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "id": "Box2DBodyComponent",
+            "data": {
+              "bodyType": "StaticBody",
+              "fixedRotation": false,
+              "bullet": false,
+              "linearDamping": 0,
+              "angularDamping": 0,
+              "allowSleep": true,
+              "gravityScale": 1,
+              "fixtures": [
+                {
+                  "friction": 0.2,
+                  "restitution": 0,
+                  "density": 0,
+                  "sensor": false,
+                  "sensorName": "",
+                  "sensorType": "",
+                  "category": [
+                    "Harmful"
+                  ],
+                  "mask": [
+                    "Character",
+                    "Sensor"
+                  ],
+                  "shape": {
+                    "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                    "width": 64,
+                    "height": 64,
+                    "center": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "angle": 0
+                  }
+                }
+              ]
             }
           }
         ]

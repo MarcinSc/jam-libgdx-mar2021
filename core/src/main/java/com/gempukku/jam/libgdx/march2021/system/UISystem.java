@@ -23,9 +23,11 @@ public class UISystem extends EntitySystem implements Disposable {
     private Stage stage;
     private Table centerTable;
     private Table bottomTable;
+    private Table hintTable;
     private Label levelNumber;
     private Label levelTitle;
     private Label levelQuote;
+    private Label hintLabel;
 
     public UISystem(int priority) {
         super(priority);
@@ -54,6 +56,13 @@ public class UISystem extends EntitySystem implements Disposable {
         bottomTable.setFillParent(true);
 
         bottomTable.add(new Label("Press SPACE to continue", skin)).center().bottom().row();
+
+        hintTable = new Table(skin);
+        hintTable.bottom();
+        hintTable.setFillParent(true);
+
+        hintLabel = new Label(null, skin);
+        hintTable.add(hintLabel).center().bottom().row();
     }
 
     @Override
@@ -73,6 +82,15 @@ public class UISystem extends EntitySystem implements Disposable {
 
                     }
                 });
+    }
+
+    public void showHintScreen(String hint) {
+        hintLabel.setText(hint);
+        stage.addActor(hintTable);
+    }
+
+    public void hideHintScreen() {
+        hintTable.remove();
     }
 
     public void showLevelScreen() {
