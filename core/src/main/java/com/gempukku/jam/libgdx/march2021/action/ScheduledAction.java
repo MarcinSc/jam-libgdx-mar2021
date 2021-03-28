@@ -1,21 +1,22 @@
 package com.gempukku.jam.libgdx.march2021.action;
 
-import com.gempukku.libgdx.graph.time.TimeProvider;
+import com.badlogic.ashley.core.Engine;
+import com.gempukku.jam.libgdx.march2021.system.TimeSystem;
 
 public class ScheduledAction implements Action {
-    private TimeProvider timeProvider;
+    private Engine engine;
     private float time;
     private Runnable runnable;
 
-    public ScheduledAction(TimeProvider timeProvider, float time, Runnable runnable) {
-        this.timeProvider = timeProvider;
+    public ScheduledAction(Engine engine, float time, Runnable runnable) {
+        this.engine = engine;
         this.time = time;
         this.runnable = runnable;
     }
 
     @Override
     public boolean act() {
-        if (timeProvider.getTime() >= time) {
+        if (engine.getSystem(TimeSystem.class).getTimeProvider().getTime() >= time) {
             runnable.run();
             return true;
         }

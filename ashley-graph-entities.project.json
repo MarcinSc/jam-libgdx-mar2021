@@ -625,7 +625,7 @@
     },
     {
       "name": "level-2",
-      "enabled": true,
+      "enabled": false,
       "entities": [
         {
           "path": "Enemies",
@@ -1498,8 +1498,8 @@
                     "height": 0.20000000298023224
                   },
                   "snapSpeed": {
-                    "x": 0.30000001192092896,
-                    "y": 0.30000001192092896
+                    "x": 0.5,
+                    "y": 0.5
                   },
                   "lockWindow": {
                     "x": 0.20000000298023224,
@@ -1597,7 +1597,7 @@
     },
     {
       "name": "level-2-back",
-      "enabled": true,
+      "enabled": false,
       "entities": [
         {
           "path": null,
@@ -1619,6 +1619,464 @@
                   "layer": 99,
                   "width": 320,
                   "height": 960,
+                  "tags": [
+                    "Animated"
+                  ],
+                  "properties": {}
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "level-3",
+      "enabled": true,
+      "entities": [
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "84092bc9ebf64effb939f4e364dd0434",
+            "name": "Ground",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": -120
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment",
+                        "Ground"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 320,
+                        "height": 8,
+                        "center": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 10,
+                  "width": 320,
+                  "height": 16,
+                  "tags": [
+                    "Animated"
+                  ],
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/environment/underground-bottom.png"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "712493e327034f69b23a24dba2bf8c50",
+            "name": "Platform 1",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -112,
+                  "y": -52
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "7a1b65faa8334cfda054597274b231bb",
+            "name": "Platform 2",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 112,
+                  "y": -52
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "22d6a6019be348cfb62f665550004f42",
+            "name": "Platform 3",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -44,
+                  "y": 20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Platforms",
+          "data": {
+            "id": "1f83f314e1474c9f89838301411890e8",
+            "name": "Platform 4",
+            "templates": [
+              "01ce35d40d094ee78401b27cda7f19c1"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 44,
+                  "y": 20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Special",
+          "data": {
+            "id": "546c0691d50b44f78f435b71701ed92f",
+            "name": "Spawn 1",
+            "templates": [],
+            "components": [
+              {
+                "id": "a73093ec23a94c0f8bf2348c81dc0524",
+                "data": {
+                  "id": "spawn-1"
+                }
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -112,
+                  "y": -20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Special",
+          "data": {
+            "id": "1c30f8a4e68544c785bafe61d74ae2f9",
+            "name": "Spawn 2",
+            "templates": [],
+            "components": [
+              {
+                "id": "a73093ec23a94c0f8bf2348c81dc0524",
+                "data": {
+                  "id": "spawn-2"
+                }
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -44,
+                  "y": 52
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Special",
+          "data": {
+            "id": "ad20bdabf2ff4422a7de25da00ab5d33",
+            "name": "Spawn 3",
+            "templates": [],
+            "components": [
+              {
+                "id": "a73093ec23a94c0f8bf2348c81dc0524",
+                "data": {
+                  "id": "spawn-3"
+                }
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 44,
+                  "y": 52
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Special",
+          "data": {
+            "id": "bfaafef7fb7e4905b54e7006e8f27859",
+            "name": "Spawn 4",
+            "templates": [],
+            "components": [
+              {
+                "id": "a73093ec23a94c0f8bf2348c81dc0524",
+                "data": {
+                  "id": "spawn-4"
+                }
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 112,
+                  "y": -20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "ed4e9079c60749e2834eb6fb7af96f3f",
+            "name": "Left Wall",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -160,
+                  "y": 0
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 8,
+                        "height": 480,
+                        "center": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "37d8271150d94b6a889e779e7fcbae08",
+            "name": "Level",
+            "templates": [],
+            "components": [
+              {
+                "id": "5d8dc22ac18a45bab95b9aa008fa1f7c",
+                "data": {
+                  "bounds": {
+                    "x": -160.0,
+                    "y": -120.0,
+                    "width": 320.0,
+                    "height": 240.0
+                  },
+                  "snapWindow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "width": 1.0,
+                    "height": 1.0
+                  },
+                  "snapSpeed": {
+                    "x": 0.20000000298023224,
+                    "y": 0.20000000298023224
+                  },
+                  "lockWindow": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "width": 1.0,
+                    "height": 1.0
+                  },
+                  "color": "000000",
+                  "title": "A Mad Tea-Party",
+                  "quote": "\"'No room! No room!' they cried out when they saw Alice coming. 'There's plenty of room!' said Alice indignantly.\"",
+                  "levelNumber": 3
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "3b9c675aa9934b199edca18de9542d9e",
+            "name": "Right Wall",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 160,
+                  "y": 0
+                }
+              },
+              {
+                "id": "Box2DBodyComponent",
+                "data": {
+                  "bodyType": "StaticBody",
+                  "fixedRotation": false,
+                  "bullet": false,
+                  "linearDamping": 0,
+                  "angularDamping": 0,
+                  "allowSleep": true,
+                  "gravityScale": 1,
+                  "fixtures": [
+                    {
+                      "friction": 0.2,
+                      "restitution": 0,
+                      "density": 0,
+                      "sensor": false,
+                      "sensorName": "",
+                      "sensorType": "",
+                      "category": [
+                        "Environment"
+                      ],
+                      "mask": [
+                        "Character",
+                        "Sensor"
+                      ],
+                      "shape": {
+                        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+                        "width": 8,
+                        "height": 480,
+                        "center": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "angle": 0
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": null,
+          "data": {
+            "id": "e90d090c2c45408b974323884cab0e19",
+            "name": "Spawn",
+            "templates": [],
+            "components": [
+              {
+                "id": "260ef9f516514a7fa776f5386a59fedd",
+                "data": {}
+              },
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": -84
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "level-3-back",
+      "enabled": true,
+      "entities": [
+        {
+          "path": null,
+          "data": {
+            "id": "111274ed932a4679afd1d702da26fd41",
+            "name": "Background",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 99,
+                  "width": 320,
+                  "height": 240,
                   "tags": [
                     "Animated"
                   ],

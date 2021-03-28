@@ -19,6 +19,7 @@ import com.gempukku.jam.libgdx.march2021.component.ImportTemplateComponent;
 import com.gempukku.jam.libgdx.march2021.component.LevelComponent;
 import com.gempukku.jam.libgdx.march2021.system.level.IntoRabbitHoleLevelLogic;
 import com.gempukku.jam.libgdx.march2021.system.level.LevelContainer;
+import com.gempukku.jam.libgdx.march2021.system.level.MadTeaPartyLevelLogic;
 import com.gempukku.jam.libgdx.march2021.system.level.TheGreatFallLevelLogic;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.Box2DSystem;
 import com.gempukku.libgdx.entity.editor.plugin.ashley.graph.system.RenderingSystem;
@@ -40,6 +41,7 @@ public class LevelSystem extends EntitySystem {
         levelContainer = new LevelContainer();
         levelContainer.addLevelLogic(1, new IntoRabbitHoleLevelLogic());
         levelContainer.addLevelLogic(2, new TheGreatFallLevelLogic());
+        levelContainer.addLevelLogic(3, new MadTeaPartyLevelLogic());
     }
 
     public void loadLevel(String level, boolean showLevelScreen) {
@@ -66,7 +68,7 @@ public class LevelSystem extends EntitySystem {
                                 uiSystem.hideLevelScreen();
                                 float fadeInLength = 1f;
                                 TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
-                                actionSystem.addAction(new DelayedAction(timeProvider, fadeInLength,
+                                actionSystem.addAction(new DelayedAction(engine, fadeInLength,
                                         new Runnable() {
                                             @Override
                                             public void run() {
@@ -81,7 +83,7 @@ public class LevelSystem extends EntitySystem {
                 float fadeInLength = 1f;
                 TimeProvider timeProvider = engine.getSystem(TimeSystem.class).getTimeProvider();
                 ActionSystem actionSystem = engine.getSystem(ActionSystem.class);
-                actionSystem.addAction(new DelayedAction(timeProvider, fadeInLength,
+                actionSystem.addAction(new DelayedAction(engine, fadeInLength,
                         new Runnable() {
                             @Override
                             public void run() {
@@ -120,7 +122,7 @@ public class LevelSystem extends EntitySystem {
         pauseGame();
         ActionSystem actionSystem = engine.getSystem(ActionSystem.class);
         actionSystem.addAction(new FadeOutAction(timeProvider, screenShaders, "Blackout", "Alpha", fadeOutLength));
-        actionSystem.addAction(new DelayedAction(timeProvider, fadeOutLength,
+        actionSystem.addAction(new DelayedAction(engine, fadeOutLength,
                 new Runnable() {
                     @Override
                     public void run() {
@@ -198,5 +200,11 @@ public class LevelSystem extends EntitySystem {
         engine.getSystem(InputControlSystem.class).setEnabled(true);
         engine.getSystem(Box2DSystem.class).setEnabled(true);
         //engine.getSystem(FiniteStateSystem.class).setEnabled(true);
+
+        for (Entity levelEntity : engine.getEntitiesFor(Family.all(LevelComponent.class).get())) {
+            LevelComponent levelComponent = levelEntity.getComponent(LevelComponent.class);
+            int levelNumber = levelComponent.getLevelNumber();
+            levelContainer.getLevelLogic(levelNumber).loadLogic(engine);
+        }
     }
 }

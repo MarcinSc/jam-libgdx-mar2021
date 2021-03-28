@@ -71,8 +71,9 @@ public class GameScene implements Scene {
         engine = setupEntitySystem();
 
         LevelSystem levelSystem = engine.getSystem(LevelSystem.class);
-        levelSystem.loadLevel("entities/level-1.json", true);
+        //levelSystem.loadLevel("entities/level-1.json", true);
         //levelSystem.loadLevel("entities/level-2.json", true);
+        levelSystem.loadLevel("entities/level-3.json", true);
     }
 
     @Override

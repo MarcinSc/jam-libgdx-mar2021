@@ -1,0 +1,264 @@
+{
+  "entities": [
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 0,
+        "y": -120
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment",
+              "Ground"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 320,
+              "height": 8,
+              "center": {
+                "x": 0,
+                "y": 0
+              },
+              "angle": 0
+            }
+          }
+        ]
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+        "layer": 10,
+        "width": 320,
+        "height": 16,
+        "tags": [
+          "Animated"
+        ],
+        "properties": {
+          "Texture": {
+            "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+            "atlas": "",
+            "texture": "images/environment/underground-bottom.png"
+          }
+        }
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -112,
+        "y": -52
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 112,
+        "y": -52
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -44,
+        "y": 20
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/UnderPlatform1.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 44,
+        "y": 20
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.IdComponent": {
+        "id": "spawn-1"
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -112,
+        "y": -20
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.IdComponent": {
+        "id": "spawn-2"
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -44,
+        "y": 52
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.IdComponent": {
+        "id": "spawn-3"
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 44,
+        "y": 52
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.IdComponent": {
+        "id": "spawn-4"
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 112,
+        "y": -20
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -160,
+        "y": 0
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 8,
+              "height": 480,
+              "center": {
+                "x": 0,
+                "y": 0
+              },
+              "angle": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.LevelComponent": {
+        "bounds": {
+          "x": -160.0,
+          "y": -120.0,
+          "width": 320.0,
+          "height": 240.0
+        },
+        "snapWindow": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 1.0
+        },
+        "snapSpeed": {
+          "x": 0.20000000298023224,
+          "y": 0.20000000298023224
+        },
+        "lockWindow": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 1.0
+        },
+        "color": "000000",
+        "title": "A Mad Tea-Party",
+        "quote": "\"'No room! No room!' they cried out when they saw Alice coming. 'There's plenty of room!' said Alice indignantly.\"",
+        "levelNumber": 3
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 160,
+        "y": 0
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.Box2DBodyComponent": {
+        "bodyType": "StaticBody",
+        "fixedRotation": false,
+        "bullet": false,
+        "linearDamping": 0,
+        "angularDamping": 0,
+        "allowSleep": true,
+        "gravityScale": 1,
+        "fixtures": [
+          {
+            "friction": 0.2,
+            "restitution": 0,
+            "density": 0,
+            "sensor": false,
+            "sensorName": "",
+            "sensorType": "",
+            "category": [
+              "Environment"
+            ],
+            "mask": [
+              "Character",
+              "Sensor"
+            ],
+            "shape": {
+              "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.def.BoxFixtureShape",
+              "width": 8,
+              "height": 480,
+              "center": {
+                "x": 0,
+                "y": 0
+              },
+              "angle": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tpl:extends": [],
+      "com.gempukku.jam.libgdx.march2021.component.PlayerSpawnComponent": {},
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 0,
+        "y": -84
+      }
+    }
+  ]
+}

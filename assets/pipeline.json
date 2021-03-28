@@ -32,6 +32,16 @@
       }
     },
     {
+      "id": "67a1ee5d907347dba6f165acde3cdc22",
+      "type": "Property",
+      "x": 709.0,
+      "y": 688.0,
+      "data": {
+        "name": "Boss HP",
+        "type": "Boolean"
+      }
+    },
+    {
       "id": "end",
       "type": "PipelineEnd",
       "x": 346.0,
@@ -40,8 +50,8 @@
     {
       "id": "ae83331800c64444a887512ba7686e0a",
       "type": "FullScreenShaderRenderer",
-      "x": 586.0,
-      "y": 129.0,
+      "x": 943.0,
+      "y": 118.0,
       "data": {
         "shaders": [
           {
@@ -655,6 +665,352 @@
       }
     },
     {
+      "id": "24e394750b2040f6a05647c5d9cce6ae",
+      "type": "FullScreenShaderRenderer",
+      "x": 941.0,
+      "y": 434.0,
+      "data": {
+        "shaders": [
+          {
+            "id": "d2536504224e484e96734b05c87a99e4",
+            "tag": "Boss HP",
+            "shader": {
+              "version": "0.5.0",
+              "type": "Screen_Shader",
+              "nodes": [
+                {
+                  "id": "65f244dc6f66422dad3ff4853d36bd14",
+                  "type": "ValueFloat",
+                  "x": 290.0,
+                  "y": 469.0,
+                  "data": {
+                    "v1": 0.05000000074505806
+                  }
+                },
+                {
+                  "id": "9d557dfdc746478a877d48eca412d9f8",
+                  "type": "Mix",
+                  "x": 1149.0,
+                  "y": 871.0
+                },
+                {
+                  "id": "51dcd111e22346ff8c249cbd5869fcc2",
+                  "type": "Mix",
+                  "x": 1344.0,
+                  "y": 628.0
+                },
+                {
+                  "id": "6f5444e164fa4e6d84062868930898e3",
+                  "type": "ValueColor",
+                  "x": 923.0,
+                  "y": 938.0,
+                  "data": {
+                    "color": "360000ff"
+                  }
+                },
+                {
+                  "id": "00e37893382c466fa670f3a02f671d1a",
+                  "type": "ScreenPosition",
+                  "x": 55.0,
+                  "y": 400.0
+                },
+                {
+                  "id": "d4475d3749fb47f99ce84bbe5fe709c8",
+                  "type": "RectangleShape",
+                  "x": 455.0,
+                  "y": 186.0
+                },
+                {
+                  "id": "8d651450c6014e6ea35758517a29fa93",
+                  "type": "ValueFloat",
+                  "x": 459.0,
+                  "y": 98.0,
+                  "data": {
+                    "v1": 0.800000011920929
+                  }
+                },
+                {
+                  "id": "0023483956fc41f5a491723a26df1220",
+                  "type": "Multiply",
+                  "x": 648.0,
+                  "y": 150.0
+                },
+                {
+                  "id": "858bcf237dec403ab080ad3df836672f",
+                  "type": "Split",
+                  "x": 270.0,
+                  "y": 545.0
+                },
+                {
+                  "id": "20e150cacbd841ccbbdca820bf18002e",
+                  "type": "Step",
+                  "x": 918.0,
+                  "y": 862.0
+                },
+                {
+                  "id": "8bc65c3b51e54a68ac5d9b729560f7d6",
+                  "type": "ValueVector2",
+                  "x": 164.0,
+                  "y": 167.0,
+                  "data": {
+                    "v1": 0.8999999761581421,
+                    "v2": 0.029999999329447746
+                  }
+                },
+                {
+                  "id": "19eb5335fe934d97885aca7209aa260e",
+                  "type": "Add",
+                  "x": 261.0,
+                  "y": 289.0
+                },
+                {
+                  "id": "ec4695058b3543ea9b145f1750289483",
+                  "type": "ValueColor",
+                  "x": 919.0,
+                  "y": 997.0,
+                  "data": {
+                    "color": "000000ff"
+                  }
+                },
+                {
+                  "id": "3797162acfe64403a1267359132a2380",
+                  "type": "Property",
+                  "x": 937.0,
+                  "y": 599.0,
+                  "data": {
+                    "name": "Health",
+                    "type": "Float"
+                  }
+                },
+                {
+                  "id": "61775a1a6d08465c92c588dc8a630b8e",
+                  "type": "ValueColor",
+                  "x": 1151.0,
+                  "y": 651.0,
+                  "data": {
+                    "color": "9c0000ff"
+                  }
+                },
+                {
+                  "id": "455f0539ee6945a98bcc1b806adabdf9",
+                  "type": "ValueVector2",
+                  "x": 50.0,
+                  "y": 256.0,
+                  "data": {
+                    "v1": 0.0,
+                    "v2": -0.44999998807907104
+                  }
+                },
+                {
+                  "id": "3d9e5edcc05e40389fe34a55a029d4cd",
+                  "type": "Property",
+                  "x": 661.0,
+                  "y": 866.0,
+                  "data": {
+                    "name": "Old Health",
+                    "type": "Float"
+                  }
+                },
+                {
+                  "id": "153975b50c954a2aa02bee1497ada7d8",
+                  "type": "Divide",
+                  "x": 703.0,
+                  "y": 551.0
+                },
+                {
+                  "id": "end",
+                  "type": "FullScreenShaderEnd",
+                  "x": 1452.0,
+                  "y": 50.0,
+                  "data": {
+                    "blending": "alpha"
+                  }
+                },
+                {
+                  "id": "f6129288233742d8acbd725c5d962391",
+                  "type": "Subtract",
+                  "x": 513.0,
+                  "y": 566.0
+                },
+                {
+                  "id": "cedcb159895d4e018fe93ffdd2b8114b",
+                  "type": "Step",
+                  "x": 1149.0,
+                  "y": 559.0
+                },
+                {
+                  "id": "9c0357ddabbe4fdab913fdbb16b7a140",
+                  "type": "ValueFloat",
+                  "x": 517.0,
+                  "y": 505.0,
+                  "data": {
+                    "v1": 0.8999999761581421
+                  }
+                }
+              ],
+              "connections": [
+                {
+                  "fromNode": "8bc65c3b51e54a68ac5d9b729560f7d6",
+                  "fromField": "value",
+                  "toNode": "d4475d3749fb47f99ce84bbe5fe709c8",
+                  "toField": "size"
+                },
+                {
+                  "fromNode": "00e37893382c466fa670f3a02f671d1a",
+                  "fromField": "output",
+                  "toNode": "19eb5335fe934d97885aca7209aa260e",
+                  "toField": "inputs"
+                },
+                {
+                  "fromNode": "455f0539ee6945a98bcc1b806adabdf9",
+                  "fromField": "value",
+                  "toNode": "19eb5335fe934d97885aca7209aa260e",
+                  "toField": "inputs"
+                },
+                {
+                  "fromNode": "19eb5335fe934d97885aca7209aa260e",
+                  "fromField": "output",
+                  "toNode": "d4475d3749fb47f99ce84bbe5fe709c8",
+                  "toField": "uv"
+                },
+                {
+                  "fromNode": "d4475d3749fb47f99ce84bbe5fe709c8",
+                  "fromField": "output",
+                  "toNode": "0023483956fc41f5a491723a26df1220",
+                  "toField": "inputs"
+                },
+                {
+                  "fromNode": "0023483956fc41f5a491723a26df1220",
+                  "fromField": "output",
+                  "toNode": "end",
+                  "toField": "alpha"
+                },
+                {
+                  "fromNode": "8d651450c6014e6ea35758517a29fa93",
+                  "fromField": "value",
+                  "toNode": "0023483956fc41f5a491723a26df1220",
+                  "toField": "inputs"
+                },
+                {
+                  "fromNode": "00e37893382c466fa670f3a02f671d1a",
+                  "fromField": "output",
+                  "toNode": "858bcf237dec403ab080ad3df836672f",
+                  "toField": "input"
+                },
+                {
+                  "fromNode": "858bcf237dec403ab080ad3df836672f",
+                  "fromField": "x",
+                  "toNode": "f6129288233742d8acbd725c5d962391",
+                  "toField": "a"
+                },
+                {
+                  "fromNode": "65f244dc6f66422dad3ff4853d36bd14",
+                  "fromField": "value",
+                  "toNode": "f6129288233742d8acbd725c5d962391",
+                  "toField": "b"
+                },
+                {
+                  "fromNode": "f6129288233742d8acbd725c5d962391",
+                  "fromField": "output",
+                  "toNode": "153975b50c954a2aa02bee1497ada7d8",
+                  "toField": "a"
+                },
+                {
+                  "fromNode": "9c0357ddabbe4fdab913fdbb16b7a140",
+                  "fromField": "value",
+                  "toNode": "153975b50c954a2aa02bee1497ada7d8",
+                  "toField": "b"
+                },
+                {
+                  "fromNode": "153975b50c954a2aa02bee1497ada7d8",
+                  "fromField": "output",
+                  "toNode": "cedcb159895d4e018fe93ffdd2b8114b",
+                  "toField": "edge"
+                },
+                {
+                  "fromNode": "3797162acfe64403a1267359132a2380",
+                  "fromField": "value",
+                  "toNode": "cedcb159895d4e018fe93ffdd2b8114b",
+                  "toField": "input"
+                },
+                {
+                  "fromNode": "cedcb159895d4e018fe93ffdd2b8114b",
+                  "fromField": "output",
+                  "toNode": "51dcd111e22346ff8c249cbd5869fcc2",
+                  "toField": "t"
+                },
+                {
+                  "fromNode": "51dcd111e22346ff8c249cbd5869fcc2",
+                  "fromField": "output",
+                  "toNode": "end",
+                  "toField": "color"
+                },
+                {
+                  "fromNode": "61775a1a6d08465c92c588dc8a630b8e",
+                  "fromField": "value",
+                  "toNode": "51dcd111e22346ff8c249cbd5869fcc2",
+                  "toField": "b"
+                },
+                {
+                  "fromNode": "153975b50c954a2aa02bee1497ada7d8",
+                  "fromField": "output",
+                  "toNode": "20e150cacbd841ccbbdca820bf18002e",
+                  "toField": "edge"
+                },
+                {
+                  "fromNode": "3d9e5edcc05e40389fe34a55a029d4cd",
+                  "fromField": "value",
+                  "toNode": "20e150cacbd841ccbbdca820bf18002e",
+                  "toField": "input"
+                },
+                {
+                  "fromNode": "20e150cacbd841ccbbdca820bf18002e",
+                  "fromField": "output",
+                  "toNode": "9d557dfdc746478a877d48eca412d9f8",
+                  "toField": "t"
+                },
+                {
+                  "fromNode": "ec4695058b3543ea9b145f1750289483",
+                  "fromField": "value",
+                  "toNode": "9d557dfdc746478a877d48eca412d9f8",
+                  "toField": "a"
+                },
+                {
+                  "fromNode": "6f5444e164fa4e6d84062868930898e3",
+                  "fromField": "value",
+                  "toNode": "9d557dfdc746478a877d48eca412d9f8",
+                  "toField": "b"
+                },
+                {
+                  "fromNode": "9d557dfdc746478a877d48eca412d9f8",
+                  "fromField": "output",
+                  "toNode": "51dcd111e22346ff8c249cbd5869fcc2",
+                  "toField": "a"
+                }
+              ],
+              "properties": [
+                {
+                  "name": "Health",
+                  "type": "Float",
+                  "data": {
+                    "x": 0.5
+                  }
+                },
+                {
+                  "name": "Old Health",
+                  "type": "Float",
+                  "data": {
+                    "x": 0.6000000238418579
+                  }
+                }
+              ],
+              "groups": []
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "e856fcafa98141b8819599ff70ed2d53",
       "type": "PipelineStart",
       "x": 344.0,
@@ -695,8 +1051,20 @@
     {
       "fromNode": "0c1699efe0414cf295be58e74319f00a",
       "fromField": "output",
+      "toNode": "24e394750b2040f6a05647c5d9cce6ae",
+      "toField": "input"
+    },
+    {
+      "fromNode": "24e394750b2040f6a05647c5d9cce6ae",
+      "fromField": "output",
       "toNode": "ae83331800c64444a887512ba7686e0a",
       "toField": "input"
+    },
+    {
+      "fromNode": "67a1ee5d907347dba6f165acde3cdc22",
+      "fromField": "value",
+      "toNode": "24e394750b2040f6a05647c5d9cce6ae",
+      "toField": "enabled"
     }
   ],
   "properties": [
@@ -709,6 +1077,13 @@
       "type": "Color",
       "data": {
         "color": "000000ff"
+      }
+    },
+    {
+      "name": "Boss HP",
+      "type": "Boolean",
+      "data": {
+        "value": false
       }
     }
   ],

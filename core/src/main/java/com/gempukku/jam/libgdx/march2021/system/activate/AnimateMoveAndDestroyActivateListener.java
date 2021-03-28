@@ -43,7 +43,7 @@ public class AnimateMoveAndDestroyActivateListener implements ActivateListener {
                             new Vector2(startX, startY), new Vector2(endX, endY),
                             time));
             actionSystem.addAction(
-                    new DelayedAction(timeProvider, time,
+                    new DelayedAction(engine, time,
                             new Runnable() {
                                 @Override
                                 public void run() {
