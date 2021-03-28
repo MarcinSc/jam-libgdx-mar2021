@@ -36,7 +36,10 @@ dependencies {
 	implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
 	implementation "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion"
 	implementation "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources"
-
+	implementation "com.gempukku.libgdx.lib:libgdx-gemp-lib:$gdxGempLibVersion:sources"
+	implementation "com.gempukku.libgdx.lib:libgdx-gemp-lib-ashley:$gdxGempLibVersion:sources"
+	implementation "com.gempukku.libgdx.graph:libgdx-graph:$gdxGraphVersion:sources"
+	implementation "com.gempukku.libgdx.entity:libgdx-entity-editor-ashley-graph-runtime:$gdxEntityVersion:sources"
 }
 
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask

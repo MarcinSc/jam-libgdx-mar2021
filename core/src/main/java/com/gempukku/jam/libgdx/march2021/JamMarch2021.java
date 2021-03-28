@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Cubemap;
 import com.badlogic.gdx.graphics.Mesh;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.TextureArray;
 import com.badlogic.gdx.graphics.glutils.GLFrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.gempukku.libgdx.graph.plugin.particles.ParticlesPluginRuntimeInitializer;
@@ -60,7 +59,6 @@ public class JamMarch2021 extends ApplicationAdapter {
         Gdx.app.debug("Unclosed", GLFrameBuffer.getManagedStatus());
         Gdx.app.debug("Unclosed", Mesh.getManagedStatus());
         Gdx.app.debug("Unclosed", Texture.getManagedStatus());
-        Gdx.app.debug("Unclosed", TextureArray.getManagedStatus());
         Gdx.app.debug("Unclosed", ShaderProgram.getManagedStatus());
     }
 }

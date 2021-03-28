@@ -6,6 +6,10 @@
     <inherits name="com.badlogic.gdx.backends.gdx_backends_gwt"/>
     <inherits name="com.badlogic.ashley_gwt"/>
     <inherits name="com.badlogic.gdx.physics.box2d.box2d-gwt"/>
+    <inherits name="com.gempukku.libgdx.graph"/>
+    <inherits name="com.gempukku.libgdx.entity.editor.plugin.ashley.graph"/>
+    <inherits name="com.gempukku.libgdx.gemp-lib"/>
+    <inherits name="com.gempukku.libgdx.lib.template.gemp-lib-ashley"/>
     <inherits name="com.gempukku.jam.libgdx.march2021.JamMarch2021"/>
     <entry-point class="com.gempukku.jam.libgdx.march2021.gwt.GwtLauncher"/>
     <set-configuration-property name="gdx.assetpath" value="../assets"/>
