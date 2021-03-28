@@ -666,6 +666,120 @@
           }
         },
         {
+          "path": "Enemies",
+          "data": {
+            "id": "0feb032b3a2f4ccf9b72847aadabfc5f",
+            "name": "Mouse 3",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -64,
+                  "y": 32
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Enemies",
+          "data": {
+            "id": "8c3400e40f604ad9a93ebde4e336d37c",
+            "name": "Mouse 4",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 104,
+                  "y": -32
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Enemies",
+          "data": {
+            "id": "6a6a32f9cf0642368dd2ebe66e7a1115",
+            "name": "Mouse 5",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -96,
+                  "y": -176
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Enemies",
+          "data": {
+            "id": "534405ea6dc94707b9745857481f0d8b",
+            "name": "Mouse 6",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -40,
+                  "y": -248
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Enemies",
+          "data": {
+            "id": "0257fb79d08c45968f45f59760bd8cc9",
+            "name": "Mouse 7",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -88,
+                  "y": -312
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Enemies",
+          "data": {
+            "id": "31b533f4a6b64f7d8b0b77dc2acde2a0",
+            "name": "Mouse 8",
+            "templates": [
+              "b2790ff52fe44aa78102aeaa13d3e7c5"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 112,
+                  "y": -400
+                }
+              }
+            ]
+          }
+        },
+        {
           "path": "Platforms",
           "data": {
             "id": "6c60ba980fd84f88b2eb1d6441fa4dc0",
@@ -866,8 +980,8 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": -68,
-                  "y": -322
+                  "x": -72,
+                  "y": -328
                 }
               }
             ]
@@ -1056,8 +1170,8 @@
               {
                 "id": "PositionComponent",
                 "data": {
-                  "x": -44,
-                  "y": 22
+                  "x": -48,
+                  "y": 16
                 }
               }
             ]
@@ -1098,7 +1212,7 @@
                       "friction": 0.2,
                       "restitution": 0,
                       "density": 0,
-                      "sensor": true,
+                      "sensor": false,
                       "sensorName": "",
                       "sensorType": "",
                       "category": [

@@ -19,6 +19,60 @@
       }
     },
     {
+      "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -64,
+        "y": 32
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 104,
+        "y": -32
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -96,
+        "y": -176
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -40,
+        "y": -248
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -88,
+        "y": -312
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/Mouse.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 112,
+        "y": -400
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": 1,
@@ -136,8 +190,8 @@
         "templates/UnderPlatform2.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -68,
-        "y": -322
+        "x": -72,
+        "y": -328
       }
     },
     {
@@ -226,8 +280,8 @@
         "templates/UnderPlatform2.json"
       ],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
-        "x": -44,
-        "y": 22
+        "x": -48,
+        "y": 16
       }
     },
     {
@@ -252,7 +306,7 @@
             "friction": 0.2,
             "restitution": 0,
             "density": 0,
-            "sensor": true,
+            "sensor": false,
             "sensorName": "",
             "sensorType": "",
             "category": [
