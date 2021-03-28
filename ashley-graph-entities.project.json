@@ -780,6 +780,169 @@
           }
         },
         {
+          "path": "Environment",
+          "data": {
+            "id": "aed0c059777a4f4ca7eaf90d024735d3",
+            "name": "Shelve 1",
+            "templates": [
+              "a453a1e49e8c4eaca8caeb62ce33e7f3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -152,
+                  "y": 448
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Environment",
+          "data": {
+            "id": "207f542d83394798b807d008dbea3bcb",
+            "name": "Shelve 2",
+            "templates": [
+              "a453a1e49e8c4eaca8caeb62ce33e7f3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -152,
+                  "y": 384
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Environment",
+          "data": {
+            "id": "6deb0d79de4a4b8faf5c3dd7d4209101",
+            "name": "Shelve 3",
+            "templates": [
+              "752ba1aee37c410f8829279acc3f3936"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -152,
+                  "y": 296
+                }
+              },
+              {
+                "id": "FacingComponent",
+                "data": {
+                  "faceDirection": "Left"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Environment",
+          "data": {
+            "id": "1d432859851843b69d64f3e5b38691d3",
+            "name": "Shelve 4",
+            "templates": [
+              "752ba1aee37c410f8829279acc3f3936"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -152,
+                  "y": 216
+                }
+              },
+              {
+                "id": "FacingComponent",
+                "data": {
+                  "faceDirection": "Left"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Environment",
+          "data": {
+            "id": "b944fc742c7944ea996d192ec73634d0",
+            "name": "Shelve 5",
+            "templates": [
+              "a453a1e49e8c4eaca8caeb62ce33e7f3"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 152,
+                  "y": 56
+                }
+              },
+              {
+                "id": "FacingComponent",
+                "data": {
+                  "faceDirection": "Left"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Environment",
+          "data": {
+            "id": "a3ed8eef4234485cae4fccb3baca9347",
+            "name": "Shelve 6",
+            "templates": [
+              "752ba1aee37c410f8829279acc3f3936"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 152,
+                  "y": -40
+                }
+              },
+              {
+                "id": "FacingComponent",
+                "data": {
+                  "faceDirection": "Right"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Environment",
+          "data": {
+            "id": "211cdffdaeb54113bc588fe3c06cf915",
+            "name": "Shelve 7",
+            "templates": [
+              "752ba1aee37c410f8829279acc3f3936"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 152,
+                  "y": -136
+                }
+              },
+              {
+                "id": "FacingComponent",
+                "data": {
+                  "faceDirection": "Right"
+                }
+              }
+            ]
+          }
+        },
+        {
           "path": "Platforms",
           "data": {
             "id": "6c60ba980fd84f88b2eb1d6441fa4dc0",
@@ -1674,6 +1837,62 @@
     }
   ],
   "templates": [
+    {
+      "path": "shelves",
+      "data": {
+        "id": "752ba1aee37c410f8829279acc3f3936",
+        "name": "BookShelve",
+        "templates": [],
+        "components": [
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 80,
+              "width": 32,
+              "height": 64,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/environment/book-shelve.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": "shelves",
+      "data": {
+        "id": "a453a1e49e8c4eaca8caeb62ce33e7f3",
+        "name": "GlassShelve",
+        "templates": [],
+        "components": [
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 80,
+              "width": 16,
+              "height": 64,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/environment/glass-shelve.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
     {
       "path": null,
       "data": {

@@ -73,6 +73,84 @@
       }
     },
     {
+      "tpl:extends": [
+        "templates/shelves/GlassShelve.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -152,
+        "y": 448
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/shelves/GlassShelve.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -152,
+        "y": 384
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/shelves/BookShelve.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -152,
+        "y": 296
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
+        "faceDirection": "Left"
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/shelves/BookShelve.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": -152,
+        "y": 216
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
+        "faceDirection": "Left"
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/shelves/GlassShelve.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 152,
+        "y": 56
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
+        "faceDirection": "Left"
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/shelves/BookShelve.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 152,
+        "y": -40
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
+        "faceDirection": "Right"
+      }
+    },
+    {
+      "tpl:extends": [
+        "templates/shelves/BookShelve.json"
+      ],
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
+        "x": 152,
+        "y": -136
+      },
+      "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.FacingComponent": {
+        "faceDirection": "Right"
+      }
+    },
+    {
       "tpl:extends": [],
       "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.PositionComponent": {
         "x": 1,

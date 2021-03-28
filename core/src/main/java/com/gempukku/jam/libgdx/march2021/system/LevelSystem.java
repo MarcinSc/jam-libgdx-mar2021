@@ -190,13 +190,13 @@ public class LevelSystem extends EntitySystem {
         Engine engine = getEngine();
         engine.getSystem(InputControlSystem.class).setEnabled(false);
         engine.getSystem(Box2DSystem.class).setEnabled(false);
-        engine.getSystem(FiniteStateSystem.class).setEnabled(false);
+        //engine.getSystem(FiniteStateSystem.class).setEnabled(false);
     }
 
     private void unpauseGame() {
         Engine engine = getEngine();
         engine.getSystem(InputControlSystem.class).setEnabled(true);
         engine.getSystem(Box2DSystem.class).setEnabled(true);
-        engine.getSystem(FiniteStateSystem.class).setEnabled(true);
+        //engine.getSystem(FiniteStateSystem.class).setEnabled(true);
     }
 }
