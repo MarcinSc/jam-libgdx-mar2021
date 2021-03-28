@@ -1635,6 +1635,117 @@
       "enabled": true,
       "entities": [
         {
+          "path": "Furniture",
+          "data": {
+            "id": "466ef81d0063499c834bed2c8d85a33e",
+            "name": "Chair 1",
+            "templates": [
+              "7b6c3bb486994ce1a28a05e0c9626474"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -112,
+                  "y": -48
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Furniture",
+          "data": {
+            "id": "b5366392d59044beb5f66722a0989a20",
+            "name": "Chair 2",
+            "templates": [
+              "7b6c3bb486994ce1a28a05e0c9626474"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 112,
+                  "y": -48
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Furniture",
+          "data": {
+            "id": "d33c3fd2326e48f2bfd1e5f755f77782",
+            "name": "Chair 3",
+            "templates": [
+              "7b6c3bb486994ce1a28a05e0c9626474"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": -44,
+                  "y": 24
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Furniture",
+          "data": {
+            "id": "70476f977b304446989cd0d86c29711b",
+            "name": "Chair 4",
+            "templates": [
+              "7b6c3bb486994ce1a28a05e0c9626474"
+            ],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 44,
+                  "y": 24
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "Furniture",
+          "data": {
+            "id": "31cc0492c06842a084451aabe7f6478f",
+            "name": "Table",
+            "templates": [],
+            "components": [
+              {
+                "id": "PositionComponent",
+                "data": {
+                  "x": 0,
+                  "y": -64
+                }
+              },
+              {
+                "id": "SpriteComponent",
+                "data": {
+                  "layer": 11,
+                  "width": 128,
+                  "height": 96,
+                  "tags": [
+                    "Animated"
+                  ],
+                  "properties": {
+                    "Texture": {
+                      "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                      "atlas": "",
+                      "texture": "images/environment/table.png"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
           "path": "Platforms",
           "data": {
             "id": "84092bc9ebf64effb939f4e364dd0434",
@@ -2344,6 +2455,34 @@
                   "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
                   "atlas": "",
                   "texture": "images/environment/glass-shelve.png"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": null,
+      "data": {
+        "id": "7b6c3bb486994ce1a28a05e0c9626474",
+        "name": "Chair",
+        "templates": [],
+        "components": [
+          {
+            "id": "SpriteComponent",
+            "data": {
+              "layer": 12,
+              "width": 64,
+              "height": 96,
+              "tags": [
+                "Animated"
+              ],
+              "properties": {
+                "Texture": {
+                  "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+                  "atlas": "",
+                  "texture": "images/environment/chair.png"
                 }
               }
             }

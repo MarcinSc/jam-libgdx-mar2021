@@ -1,0 +1,18 @@
+{
+  "tpl:extends": [],
+  "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.SpriteComponent": {
+    "layer": 12,
+    "width": 64,
+    "height": 96,
+    "tags": [
+      "Animated"
+    ],
+    "properties": {
+      "Texture": {
+        "class": "com.gempukku.libgdx.entity.editor.plugin.ashley.graph.component.value.TextureValue",
+        "atlas": "",
+        "texture": "images/environment/chair.png"
+      }
+    }
+  }
+}
